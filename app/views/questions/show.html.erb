@@ -7,7 +7,7 @@
 
     <%# # Iterate through the options %>
     <% question['options'].each do |_, option| %>
-      <h3>- <%= option['body'] %></h3>
+      <h3>- <%= option['body'] %>, <%= option['isItCorrect'] %></h3>
     <% end %>
   <% end %>
 </div>
