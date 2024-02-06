@@ -1,6 +1,6 @@
 require "test_helper"
 
-class RecommendationsControllerTest < ActionDispatch::IntegrationTest
+class AnswersControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
