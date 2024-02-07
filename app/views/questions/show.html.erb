@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Questions</h1>
+
+  <% @content.each do |question| %>
+    <%# # Access the question and options %>
+    <h1><%= question['question'] %></h1>
+
+    <%# # Iterate through the options %>
+    <% question['options'].each do |_, option| %>
+      <h3>- <%= option['body'] %>, <%= option['isItCorrect'] %></h3>
+    <% end %>
+  <% end %>
+</div>
