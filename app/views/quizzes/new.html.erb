@@ -1,0 +1,7 @@
+<h2>New Quizz</h2>
+
+<%= simple_form_for(@quiz) do |f| %>
+  <%= f.input :image, as: :file, input_html: {placeholder: "Your Note"}   %>
+  <%= f.submit 'Add', input_html: { style: 'height: 50px;' } %>
+<% end %>
+

@@ -1,0 +1,10 @@
+<h2>Test Page</h2>
+
+<div class="container">
+<%= cl_image_tag @quiz.image.key, height: 300, width: 400, crop: :fit %>
+
+<p>Image Text: <%= @text_from_image %></p>
+
+<%= link_to "New Quiz", new_quiz_path, class: "tab-link" %>
+
+</div>
