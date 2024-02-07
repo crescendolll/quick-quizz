@@ -1,7 +1,19 @@
-<h2>New Quizz</h2>
+<h2>Create New Quiz</h2>
+<div>
+    <%= simple_form_for @quiz, html: { multipart: true } do |f| %>
 
-<%= simple_form_for(@quiz) do |f| %>
-  <%= f.input :image, as: :file, input_html: {placeholder: "Your Note"}   %>
-  <%= f.submit 'Add', input_html: { style: 'height: 50px;' } %>
-<% end %>
+      <div data-controller="quiz-form">
+        <div>
+          <%= f.label :image %>
+          <%= f.file_field :image, as: :file, input_html: { placeholder: "Your Note" }, data: { quiz_form_target: "imageInput", action: "change->quiz-form#toggleInputs"  } %>
+        </div>
 
+        <div>
+          <%= f.label :text %>
+          <%= f.text_field :text, data: { quiz_form_target: "textInput", action: "change->quiz-form#toggleInputs"  } %>
+        </div>
+
+        <%= f.submit "Submit" %>
+      </div>
+    <% end %>
+</div>

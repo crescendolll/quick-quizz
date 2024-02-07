@@ -22,5 +22,4 @@ Rails.application.routes.draw do
 
   resources :results, only: [ :show ]
 
-  get "test", to: "quizzes#test"
 end
