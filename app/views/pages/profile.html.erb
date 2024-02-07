@@ -4,7 +4,7 @@
 
     <div class="profile-info">
       <img src="#" alt="Profile Picture" class="profile-picture">
-      <h2 class="username"><%= current_user.username %></h2>
+      <h2 class="username">Username :<br><%= current_user.email %></h2>
     </div>
 
     <div class="profile-stats">
@@ -29,21 +29,22 @@
     </div>
 
     <div class="profile-buttons">
-      <%= button_to root_path, class: "profile-button", method: :get do %>
+      <%= link_to settings_path, class: "profile-button" do %>
         <%= image_tag("home-button.svg", alt: "Settings Icon", class: "button-icon") %>
         <span class="button-text">Settings</span>
       <% end %>
 
-      <%= button_to root_path, class: "profile-button", method: :get do %>
+      <%= link_to change_password_path, class: "profile-button" do %>
         <%= image_tag("home-button.svg", alt: "Change Password Icon", class: "button-icon") %>
         <span class="button-text">Change Password</span>
       <% end %>
 
-      <%= button_to root_path, class: "profile-button", method: :get do %>
+      <%= link_to community_path, class: "profile-button" do %>
         <%= image_tag("home-button.svg", alt: "Community Icon", class: "button-icon") %>
         <span class="button-text">Community</span>
       <% end %>
     </div>
+
   </div>
 
   <div class="navbar-container">
@@ -54,9 +55,9 @@
       <button class="navbar-button">
         <%= link_to image_tag("home-button.svg", alt: "Home Button"), root_path %>
       </button>
-      <button class="navbar-button">
-        <%= link_to image_tag("home-button.svg", alt: "Home Button"), root_path %>
-      </button>
+      <%= button_to logout_path, method: :delete, class: "navbar-button", data: { confirm: "Are you sure you want to log out?" } do %>
+        Log Out
+      <% end %>
     </div>
   </div>
 </div>

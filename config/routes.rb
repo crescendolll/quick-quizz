@@ -2,6 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   get '/profile', to: 'pages#profile'
+
+  devise_scope :user do
+    delete 'logout', to: 'devise/sessions#destroy', as: :logout
+  end
+  get 'change_password', to: 'pages#change_password'
+  get '/settings', to: 'pages#settings', as: 'settings'
+  get '/community', to: 'pages#community', as: 'community'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
