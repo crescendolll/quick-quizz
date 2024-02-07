@@ -1,0 +1,62 @@
+<div class="wrapper">
+  <div class="profile-container">
+    <h1>Profile</h1>
+
+    <div class="profile-info">
+      <img src="#" alt="Profile Picture" class="profile-picture">
+      <h2 class="username"><%= current_user.username %></h2>
+    </div>
+
+    <div class="profile-stats">
+      <div class="profile-info">
+        <h2>Created Quizzes</h2>
+        <% @created_quizzes.each do |quiz| %>
+          <p><%= quiz.title %></p>
+        <% end %>
+      </div>
+
+      <div class="profile-info">
+        <h2>Taken Quizzes</h2>
+        <% @taken_quizzes.each do |quiz| %>
+          <p><%= quiz.title %></p>
+        <% end %>
+      </div>
+
+      <div class="profile-info">
+        <p><%= @average_score %></p>
+        <h2>Average Score</h2>
+      </div>
+    </div>
+
+    <div class="profile-buttons">
+      <%= button_to root_path, class: "profile-button", method: :get do %>
+        <%= image_tag("home-button.svg", alt: "Settings Icon", class: "button-icon") %>
+        <span class="button-text">Settings</span>
+      <% end %>
+
+      <%= button_to root_path, class: "profile-button", method: :get do %>
+        <%= image_tag("home-button.svg", alt: "Change Password Icon", class: "button-icon") %>
+        <span class="button-text">Change Password</span>
+      <% end %>
+
+      <%= button_to root_path, class: "profile-button", method: :get do %>
+        <%= image_tag("home-button.svg", alt: "Community Icon", class: "button-icon") %>
+        <span class="button-text">Community</span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="navbar-container">
+    <div class="navbar">
+      <button class="navbar-button">
+        <%= link_to image_tag("home-button.svg", alt: "Home Button"), root_path %>
+      </button>
+      <button class="navbar-button">
+        <%= link_to image_tag("home-button.svg", alt: "Home Button"), root_path %>
+      </button>
+      <button class="navbar-button">
+        <%= link_to image_tag("home-button.svg", alt: "Home Button"), root_path %>
+      </button>
+    </div>
+  </div>
+</div>
