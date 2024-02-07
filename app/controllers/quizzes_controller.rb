@@ -3,7 +3,9 @@ class QuizzesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
+    @user = current_user
     @quizzes = Quiz.all
+    # @my_quizzes = Quiz.where(user: @user)
   end
 
   def show
@@ -17,10 +19,9 @@ class QuizzesController < ApplicationController
 
   def create
     @quiz = Quiz.new(quiz_params)
-    @quiz.user = User.first
-    # @quiz.user = current_user
+    @quiz.user = current_user
     if @quiz.save
-      if @quiz.image.attached? # Check if an image is attached
+      if @quiz.image.attached?
         temp = Tempfile.new(["image"])
         temp.binmode
         temp.write(URI.open(@quiz.image.url).read)
