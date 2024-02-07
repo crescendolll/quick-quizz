@@ -1,6 +1,7 @@
 <div class="container">
-  <h1>Questions</h1>
+  <h1><%= @quiz.title %></h1>
 
+  <!--
   <% @content.each do |question| %>
     <%# # Access the question and options %>
     <h1><%= question['question'] %></h1>
@@ -10,4 +11,24 @@
       <h3>- <%= option['body'] %>, <%= option['isItCorrect'] %></h3>
     <% end %>
   <% end %>
+  -->
+
+  <% @quiz.questions.each do |question| %>
+    <%# # Access the question and options %>
+    <h1><%= question.question %></h1>
+
+    <%# # Iterate through the options %>
+    <% question.choices.each do |option| %>
+      <h3>- <%= option['choice'] %>, <%= option['correct'] %></h3>
+    <% end %>
+    <% raise %>
+  <% end %>
+
+  <!--
+  <h2><%= @question.question %></h1>
+  <h3>- <%= @choice1.choice %></h3>
+  <h3>- <%= @choice2.choice %></h3>
+  <h3>- <%= @choice3.choice %></h3>
+  <h3>- <%= @choice4.choice %></h3>
+  -->
 </div>

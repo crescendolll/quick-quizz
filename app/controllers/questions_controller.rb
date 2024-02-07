@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def show
-    prompt = "solar system"
+    prompt = "ruby on rails"
 
     # prompt = "The Solar System is made up of all the planets that orbit our Sun. In addition to planets, the Solar System also consists of moons, comets, asteroids, minor planets, dust and gas. The inner solar system contains the Sun, Mercury, Venus, Earth and Mars. The main asteroid belt lies between the orbits of Mars and Jupiter. The planets of the outer solar system are Jupiter, Saturn, Uranus and Neptune (Pluto is now classified as a dwarf planet)."
 
@@ -50,5 +50,23 @@ class QuestionsController < ApplicationController
     # @content = chatgpt_response["choices"][0]["message"]["content"]
     raw_content = chatgpt_response["choices"][0]["message"]["content"].gsub("\\'", "AAA").gsub('"', '\\"').gsub("'", '"').gsub("AAA", "'")
     @content = JSON.parse(raw_content)
+
+    @quiz = Quiz.create(title: @content[0]["topic"], user_id: 1)
+    @quiz.save!
+
+    @content.each do |question|
+      # how to get the quiz_id and question_id? params?
+      @question = Question.create(quiz_id: @quiz.id, question: question["question"])
+      @question.save!
+      @choice1 = Choice.create(question_id: @question.id, choice: question["options"]["option1"]["body"], correct: question["options"]["option1"]["isItCorrect"])
+      @choice1.save!
+      @choice2 = Choice.create(question_id: @question.id, choice: question["options"]["option2"]["body"], correct: question["options"]["option2"]["isItCorrect"])
+      @choice2.save!
+      @choice3 = Choice.create(question_id: @question.id, choice: question["options"]["option3"]["body"], correct: question["options"]["option3"]["isItCorrect"])
+      @choice3.save!
+      @choice4 = Choice.create(question_id: @question.id, choice: question["options"]["option4"]["body"], correct: question["options"]["option4"]["isItCorrect"])
+      @choice4.save!
+    end
+    # raise
   end
 end
