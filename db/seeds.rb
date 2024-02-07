@@ -201,14 +201,14 @@ osint.recommendations.create!([{ link: "https://osintframework.com/" },
 osint.save!
 
 puts "Making second User take the panopt quiz..."
-taken = QuizResult.create!(quiz: panopt, user: User.second, result: 0)
+qr1 = QuizResult.create!(quiz: panopt, user: User.second, result: 0)
 
 puts "Creating answers for the panopt quiz..."
-a1 = Answer.create!( choice: panopt.questions.first.choices.sample, quiz_result: taken )
-a2 = Answer.create!( choice: panopt.questions.second.choices.sample, quiz_result: taken )
-a3 = Answer.create!( choice: panopt.questions.third.choices.sample, quiz_result: taken )
-a4 = Answer.create!( choice: panopt.questions.fourth.choices.sample, quiz_result: taken )
-a5 = Answer.create!( choice: panopt.questions.fifth.choices.sample, quiz_result: taken )
+a1 = Answer.create!( choice: panopt.questions.first.choices.sample, quiz_result: qr1 )
+a2 = Answer.create!( choice: panopt.questions.second.choices.sample, quiz_result: qr1 )
+a3 = Answer.create!( choice: panopt.questions.third.choices.sample, quiz_result: qr1 )
+a4 = Answer.create!( choice: panopt.questions.fourth.choices.sample, quiz_result: qr1 )
+a5 = Answer.create!( choice: panopt.questions.fifth.choices.sample, quiz_result: qr1 )
 
 
 
@@ -220,8 +220,10 @@ a5 = Answer.create!( choice: panopt.questions.fifth.choices.sample, quiz_result:
 #   puts "and that choice was:"
 #   puts answer.choice.correct
 # end
-# puts "calculating the result based on the answers out of 100..."
-# taken.result = taken.answers.map(&:choice).select(&:correct).count / taken.answers.count.to_f
-# taken.save!
+
+puts "Calculating the result based on the answers..."
+qr1.result = qr1.answers.map(&:choice).select(&:correct).count / qr1.answers.count.to_f
+qr1.save!
+
 # puts "result was:"
-# puts taken.result
+# puts qr1.result
