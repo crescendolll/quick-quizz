@@ -3,6 +3,7 @@ class QuizzesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
+    @quizzes = Quiz.all
   end
 
   def show
