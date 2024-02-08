@@ -1,0 +1,44 @@
+.quiz-result-title {
+  padding: 1rem 2rem;
+}
+
+.quiz-result-container {
+  flex: 1;
+  // height: 100vh;
+  background-color: $dark-purple;
+  color: $white-text;
+  display: flex;
+  flex-direction: column;
+  // padding: 2rem;
+}
+
+.donut-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.result-message-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.quiz-result-title {
+  font-size: $medium-text;
+  margin-bottom: 1rem;
+}
+
+.quiz-result-percentage {
+  margin: 0;
+  font-size: $big-text;
+}
+
+.quiz-result-small-text {
+  margin: 0 2rem;
+  font-size: $small-text;
+}
