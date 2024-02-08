@@ -1,0 +1,40 @@
+.invisible {
+  display: none;
+}
+
+.quiz-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  align-items: center;
+  background-color: $background-color;
+  color: $white-text;
+  width: 100%;
+}
+
+.quiz-title {
+  margin: 10px auto;
+  font-size: $small-text;
+}
+
+.question-form {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-content: space-between;
+}
+
+.question-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 35vh;
+  margin: 20px 25px;
+  padding: 15px 20px;
+  border-radius: $border-radius;
+  background-color: $light-purple;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  font-size: $big-text;
+}
