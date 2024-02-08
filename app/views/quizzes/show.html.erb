@@ -1,10 +1,10 @@
-<h2>Your Quiz</h2>
+<h2>Your Quiz Input</h2>
 
 <div class="container bg-dark">
 <%# <%= cl_image_tag @quiz.image.key, height: 300, width: 400, crop: :fit %>
 
 <p>User Input: <%= @user_input %></p>
 
-<%= link_to "New Quiz", new_quiz_path, class: "tab-link" %>
+<%= link_to "My Quizzes", quizzes_path, class: "tab-link" %>
 
 </div>
