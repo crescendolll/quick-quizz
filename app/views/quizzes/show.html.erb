@@ -1,10 +1,23 @@
-<h2>Your Quiz Input</h2>
-
-<div class="container bg-dark">
-<%# <%= cl_image_tag @quiz.image.key, height: 300, width: 400, crop: :fit %>
-
-<p>User Input: <%= @user_input %></p>
-
-<%= link_to "My Quizzes", quizzes_path, class: "tab-link" %>
-
+<div class="wrapper">
+  <div class="quiz-container">
+<!-- TODO: make better/prettier -->
+    <div class="quiz-link-container">
+      <div><%= @quiz.title %></div>
+      <%= link_to "Start the quiz", new_quiz_quiz_result_path(@quiz) %>
+    </div>
+<!-- TODO: make better/prettier -->
+  </div>
+  <div class="navbar-container">
+    <div class="navbar">
+      <button class="navbar-button">
+        <%= link_to image_tag("home-button.svg", alt: "Home Button"), quizzes_path %>
+      </button>
+      <button class="navbar-button">
+        <%= link_to image_tag("home-button.svg", alt: "New Button"), new_quiz_path %>
+      </button>
+      <button class="navbar-button">
+        <%= link_to image_tag("home-button.svg", alt: "Avatar Button"), profile_path %>
+      </button>
+    </div>
+  </div>
 </div>

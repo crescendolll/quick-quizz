@@ -10,7 +10,7 @@ class QuizzesController < ApplicationController
 
   def show
     @quiz = Quiz.find(params[:id])
-    @user_input = params[:text]
+    # @user_input = params[:text]
   end
 
   def new

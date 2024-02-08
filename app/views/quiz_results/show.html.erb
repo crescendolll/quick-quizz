@@ -1,11 +1,29 @@
-<div class="quiz-result-container">
-  <!-- percentage -->
-  <div><%= @quiz_result.result %> %</div>
+<div class="wrapper">
+  <div class="quiz-result-container">
+    <!-- percentage -->
 
-  <h1>Well done!</h1>
+    <h1>Well done!</h1>
+    <div><%= @quiz_result.result %> %</div>
 
 
-  <div class="end-donut" style="--progress: <%= @quiz_result.result %>%;">
-      <div class="end-donut__gap"><%= @quiz_result.result %>%</div>
+    <div class="end-donut" style="--progress: <%= @quiz_result.result %>%;">
+        <div class="end-donut__gap"><%= @quiz_result.result %>%</div>
+    </div>
+    <%= link_to "See your stats", profile_path %>
+  </div>
+
+
+  <div class="navbar-container">
+    <div class="navbar">
+      <button class="navbar-button">
+        <%= link_to image_tag("home-button.svg", alt: "Home Button"), quizzes_path %>
+      </button>
+      <button class="navbar-button">
+        <%= link_to image_tag("home-button.svg", alt: "New Button"), new_quiz_path %>
+      </button>
+      <button class="navbar-button">
+        <%= link_to image_tag("home-button.svg", alt: "Avatar Button"), profile_path %>
+      </button>
+    </div>
   </div>
 </div>
