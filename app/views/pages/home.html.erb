@@ -1,2 +1,32 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="wrapper">
+  <div class="home-container">
+    <div class="quizlist-container">
+      <% @quiz_results.each do |result| %>
+        <%= result.result * 100 %>% -
+        <%= link_to result.quiz.title, quiz_path(result.quiz)%>
+      <% end %>
+    </div>
+<!-- TODO: FEED -->
+    <div class="feed-container">
+      <% @feed.each do |user| %>
+        <p>Do sth for each user: <%= user.email %></p>
+        <%= link_to "Comment", root_path %>
+        <%= link_to "Like", root_path %>
+      <% end %>
+    </div>
+<!-- TODO: FEED -->
+  </div>
+  <div class="navbar-container">
+    <div class="navbar">
+      <button class="navbar-button">
+        <%= link_to image_tag("home-button.svg", alt: "Home Button"), quizzes_path %>
+      </button>
+      <button class="navbar-button">
+        <%= link_to image_tag("home-button.svg", alt: "New Button"), new_quiz_path %>
+      </button>
+      <button class="navbar-button">
+        <%= link_to image_tag("home-button.svg", alt: "Avatar Button"), profile_path %>
+      </button>
+    </div>
+  </div>
+</div>
