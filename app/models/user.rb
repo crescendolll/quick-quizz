@@ -6,6 +6,4 @@ class User < ApplicationRecord
 
   has_many :quizzes
   has_many :quiz_results, dependent: :destroy
-
-  validates :username, presence: true, uniqueness: true
 end
