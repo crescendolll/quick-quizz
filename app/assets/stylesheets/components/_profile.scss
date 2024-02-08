@@ -9,8 +9,8 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: #2C3157;
-  color: #fff;
+  background-color: $dark-purple;
+  color: $white-text;
 }
 
 .profile-info {
@@ -23,7 +23,7 @@
 .profile-picture {
   height: 150px;
   border-radius: 50%;
-  border: #fff solid;
+  border: $white-text solid;
 }
 
 .username {
@@ -51,8 +51,8 @@
 
 .profile-button {
   border: none;
-  background-color: #3F467C;
-  color: #fff;
+  background-color: $light-purple;
+  color: $white-text;
   width: 320px;
   padding: 15px 20px;
   border-radius: 26px;
@@ -73,7 +73,7 @@
 }
 
 .profile-button:hover {
-  background-color: #34426E;
+  background-color: $button-hoover-purple;
 }
 
 
@@ -82,19 +82,19 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: #3F467C;
+  background-color: $light-purple;
   padding: 0 20px;
 }
 
 .navbar-button {
   border: none;
-  background-color: #3F467C;
-  color: #fff;
+  background-color: $light-purple;
+  color: $white-text;
   padding: 10px 20px;
   border-radius: 20px;
   cursor: pointer;
 }
 
 .navbar-button:hover {
-  background-color: #34426E;
+  background-color: $button-hoover-purple;
 }

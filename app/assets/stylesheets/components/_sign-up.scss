@@ -10,17 +10,19 @@ html, body {
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-color: #2C3157;
+  background-color: $dark-purple;
 }
 
 h2 {
   text-align: center;
   margin-bottom: 30px;
-  color:#fff;
+  color: $white-text;
+  ;
 }
 
 p {
-  color:#fff;
+  color:$white-text;
+  ;
 }
 
 img {
@@ -31,8 +33,8 @@ img {
 
 input.btn {
   border: none;
-  background-color: #41DC28;
-  color: white;
+  background-color: $green;
+  color: $white-text;
   padding: 12px;
   width: 350px;
   border-radius: 26px;
@@ -41,15 +43,15 @@ input.btn {
 }
 
 input.btn:hover {
-  background-color: #36b822;
+  background-color:$button-hoover-green;
 }
 
 .form-control {
   border-radius: 26px;
   padding: 12px;
   border: none;
-  background-color: #3F467C;
-  color: white;
+  background-color: $light-purple;
+  color: $white-text;
   margin-bottom: 10px;
   width: 100%;
 }
