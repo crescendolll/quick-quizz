@@ -1,1 +1,11 @@
-<%= @quiz_result.result %>
+<div class="quiz-result-container">
+  <!-- percentage -->
+  <div><%= @quiz_result.result %> %</div>
+
+  <h1>Well done!</h1>
+
+
+  <div class="end-donut" style="--progress: <%= @quiz_result.result %>%;">
+      <div class="end-donut__gap"><%= @quiz_result.result %>%</div>
+  </div>
+</div>
