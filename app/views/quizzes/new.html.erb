@@ -1,16 +1,16 @@
 <div class="quiz-container">
   <div class="quiz-title">Create New Quiz</div>
 
-      <div>
+      <div class="quiz-box-container">
           <%= simple_form_for @quiz, html: { multipart: true } do |f| %>
 
             <div data-controller="quiz-form">
-              <div class="quiz-card">
+              <div class="quiz-box">
                 <%= f.label :image %>
                 <%= f.file_field :image, as: :file, input_html: { placeholder: "Your Note" }, data: { quiz_form_target: "imageInput", action: "change->quiz-form#toggleInputs"  } %>
               </div>
 
-              <div class="quiz-card">
+              <div class="quiz-box">
                 <%= f.label :text %>
                 <%= f.text_field :text, data: { quiz_form_target: "textInput", action: "change->quiz-form#toggleInputs"  } %>
               </div>
