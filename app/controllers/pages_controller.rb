@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  # skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [:home]
 
   def home
     redirect_to profile_path if user_signed_in?
@@ -17,33 +17,10 @@ class PagesController < ApplicationController
     redirect_to login_path
   end
 
-  def change_password
-    @user = current_user
-    if @user.update_with_password(user_params)
-      bypass_sign_in(@user)
-      redirect_to profile_path, notice: "Password changed successfully."
-    else
-      render 'change_password'
-    end
-  end
-
-
   def settings
-
+    @user = current_user
   end
 
   def community
-
   end
-
-  private
-
-  def user_params
-    if params[:user].present?
-      params.require(:user).permit(:current_password, :password, :password_confirmation)
-    else
-      params.permit(:current_password, :password, :password_confirmation)
-    end
-  end
-
 end
