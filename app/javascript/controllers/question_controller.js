@@ -7,7 +7,6 @@ export default class extends Controller {
   connect() {
     this.questionTargets.forEach((question) => {
       console.log("Hey!", question)
-      // question.classList.add('invisible');
     });
 
     const first_question = this.questionTargets[0];

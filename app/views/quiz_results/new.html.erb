@@ -1,19 +1,30 @@
-<div class="container" data-controller="question">
-  <%= form_with model: [@quiz, @quiz_result] do |f| %>
-    <% @quiz.questions.each_with_index do |question, index| %>
-      <%# ----- question ----- %>
-      <div data-question-target="question" class="invisible">
-        <h1><%= question.question %></h1>
-        <div class="d-flex flex-column mx-4">
-          <%= f.fields_for :answers do |ff| %>
-            <% ff.collection_radio_buttons(:choice_id, question.choices, :id, :choice) do |b| %>
-              <%= b.label(:"data-value" => b.value, class: "btn btn-primary my-1") { b.radio_button + b.text } %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-      <%# ----- question ----- %>
-    <% end %>
-    <%= f.submit "Submit", class: "d-block mx-auto mt-2 btn btn-danger w-50" %>
-  <% end %>
+<div class="quiz-container" data-controller="question">
+    <div class="quiz-title">
+      <%= @quiz.title %>
+    </div>
+    <%# ----- quiz ----- %>
+      <%= form_with model: [@quiz, @quiz_result], :html => {:class => 'question-form'} do |f| %>
+        <% @quiz.questions.each do |question| %>
+          <%# ----- question ----- %>
+          <div data-question-target="question" class="invisible">
+            <div class="question-card">
+              <h1>
+                <%= question.question %>
+              </h1>
+            </div>
+            <%# ----- choices ----- %>
+            <div>
+              <%= f.fields_for :answers do |ff| %>
+                <% ff.collection_radio_buttons(:choice_id, question.choices, :id, :choice) do |b| %>
+                  <%= b.label(:"data-value" => b.value, class: "wide-button") { b.radio_button + b.text } %>
+                <% end %>
+              <% end %>
+            </div>
+            <%# ----- /choices ----- %>
+          </div>
+          <%# ----- /question ----- %>
+        <% end %>
+        <%= f.submit "Submit", class: "wide-button green-button" %>
+      <% end %>
+    <%# ----- /quiz ----- %>
 </div>
