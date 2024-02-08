@@ -1,7 +1,7 @@
 .wide-button {
   display: inline;
   border: none;
-  color: #fff;
+  color: $white-text;
   padding: 15px 20px;
   margin: 10px 25px;
   border-radius: $border-radius;
@@ -18,6 +18,6 @@
 .green-button {
   background-color: $green;
   &:hover, &:focus {
-    background-color: #119559;
+    background-color: $button-hoover-green;
   }
 }
