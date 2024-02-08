@@ -4,12 +4,11 @@
 
 .quiz-result-container {
   flex: 1;
-  // height: 100vh;
+  margin-top: 1rem;
   background-color: $dark-purple;
   color: $white-text;
   display: flex;
   flex-direction: column;
-  // padding: 2rem;
 }
 
 .donut-container {
