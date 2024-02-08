@@ -3,7 +3,7 @@
     <h1>Profile</h1>
 
     <div class="profile-info">
-      <img src="#" alt="Profile Picture" class="profile-picture">
+      <%= image_tag "profile.png", alt: "Profile Picture", class: "profile-picture" %>
       <h2 class="username">Username :<br><%= current_user.email %></h2>
     </div>
 
