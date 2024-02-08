@@ -4,8 +4,8 @@ class QuizzesController < ApplicationController
 
   def index
     @user = current_user
-    @quizzes = Quiz.all
-    # @my_quizzes = Quiz.where(user: @user)
+    @my_quizzes = Quiz.where(user: @user).order(created_at: :desc)
+    @recently_created = request&.referer&.include?("new")
   end
 
   def show
@@ -29,13 +29,20 @@ class QuizzesController < ApplicationController
         image = RTesseract.new(temp.path)
         @quiz.text = image.to_s
       end
-      redirect_to quiz_path(@quiz, text: @quiz.text)
+      # redirect_to quiz_path(@quiz, text: @quiz.text)
+      redirect_to quizzes_path
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
+  end
+
+  def destroy
+    @quiz = Quiz.find(params[:id])
+    @quiz.destroy
+    redirect_to quizzes_path, status: :see_other
   end
 
   private

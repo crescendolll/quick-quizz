@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "pages#home"
 
-  resources :quizzes, only: [ :index, :show, :new, :create, :edit ] do
+  resources :quizzes, only: [ :index, :show, :new, :create, :edit, :destroy ] do
     resources :questions, only: [ :create ]
     resources :quiz_results, only: [ :new, :create ]
   end
