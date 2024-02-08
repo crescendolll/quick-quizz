@@ -1,19 +1,21 @@
-<h2>Create New Quiz</h2>
-<div>
-    <%= simple_form_for @quiz, html: { multipart: true } do |f| %>
+<div class="quiz-container">
+  <div class="quiz-title">Create New Quiz</div>
 
-      <div data-controller="quiz-form">
-        <div>
-          <%= f.label :image %>
-          <%= f.file_field :image, as: :file, input_html: { placeholder: "Your Note" }, data: { quiz_form_target: "imageInput", action: "change->quiz-form#toggleInputs"  } %>
+      <div>
+          <%= simple_form_for @quiz, html: { multipart: true } do |f| %>
+
+            <div data-controller="quiz-form">
+              <div class="quiz-card">
+                <%= f.label :image %>
+                <%= f.file_field :image, as: :file, input_html: { placeholder: "Your Note" }, data: { quiz_form_target: "imageInput", action: "change->quiz-form#toggleInputs"  } %>
+              </div>
+
+              <div class="quiz-card">
+                <%= f.label :text %>
+                <%= f.text_field :text, data: { quiz_form_target: "textInput", action: "change->quiz-form#toggleInputs"  } %>
+              </div>
+                 <%= f.submit "Create Quiz!", class: "green-button" %>
+            </div>
+          <% end %>
         </div>
-
-        <div>
-          <%= f.label :text %>
-          <%= f.text_field :text, data: { quiz_form_target: "textInput", action: "change->quiz-form#toggleInputs"  } %>
-        </div>
-
-        <%= f.submit "Submit" %>
-      </div>
-    <% end %>
 </div>
