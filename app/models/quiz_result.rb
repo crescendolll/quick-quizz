@@ -7,6 +7,6 @@ class QuizResult < ApplicationRecord
   accepts_nested_attributes_for :answers
 
   def result_percentage
-    result*100
+    result*10
   end
 end
