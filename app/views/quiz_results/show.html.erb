@@ -1,17 +1,46 @@
-<div class="wrapper">
-  <div class="quiz-result-container">
-    <!-- percentage -->
+<div class="quiz-result-container">
+  <h1 class="quiz-result-title">Results</h1>
 
-    <h1>Well done!</h1>
-    <div><%= @quiz_result.result %> %</div>
-
-
+  <div class="donut-container">
     <div class="end-donut" style="--progress: <%= @quiz_result.result %>%;">
-        <div class="end-donut__gap"><%= @quiz_result.result %>%</div>
+        <div class="end-donut__gap">
+          <h2 class="quiz-result-percentage">
+            <%= @quiz_result.result.to_i %> %
+          </h2>
+        </div>
     </div>
-    <%= link_to "See your stats", profile_path %>
   </div>
 
+  <div class="result-message-container">
+    <% if @quiz_result.result.to_i == 100 %>
+      <h2>Woohoo!<br/>Momma will be proud</h2>
+    <% elsif @quiz_result.result.to_i >= 90 %>
+      <h2>Daaaamn!<br/>You are a beast</h2>
+    <% elsif @quiz_result.result.to_i >= 75 %>
+      <h2>Not bad!<br/>Keep on keepin' on</h2>
+    <% elsif @quiz_result.result.to_i >= 60 %>
+      <h2>It's OK!<br/>You are a decent student</h2>
+    <% elsif @quiz_result.result.to_i >= 40 %>
+      <h2>Mehh...<br/>So good yet so bad</h2>
+    <% elsif @quiz_result.result.to_i >= 20 %>
+      <h2>Oh no...<br/>Did you study at all?</h2>
+    <% elsif @quiz_result.result.to_i < 20  %>
+      <h2>Cmon...<br/>That is not acceptable</h2>
+    <% elsif @quiz_result.result.to_i <= 0  %>
+      <h2>Excuse me??<br/>How can the score be negative?!?</h2>
+    <% else %>
+      <h2>What happened?<br/>There must be a mistake</h2>
+    <% end %>
+  </div>
+
+  <% if @quiz_result.result < 100 %>
+    <div>
+      <h4 class="quiz-result-small-text">TODO: Find out more about:</h4>
+      <% @wrong_answers.each do |wrong_answer| %>
+        <h3 class="wide-button"><%= wrong_answer.choice.question.question %></h3>
+      <% end %>
+    </div>
+  <% end %>
 
   <div class="navbar-container">
     <div class="navbar">
