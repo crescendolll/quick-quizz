@@ -23,6 +23,7 @@ class QuizResultsController < ApplicationController
   def show
     @quiz_result = QuizResult.find(params[:id])
     @quiz_result.result = (@quiz_result.answers.select { |answer| answer.choice.correct }.count)*100/(@quiz_result.answers.count.to_f)
+    @wrong_answers = @quiz_result.answers.select { |answer| !answer.choice.correct }
   end
 
   private

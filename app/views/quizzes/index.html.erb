@@ -1,29 +1,44 @@
-<div class="quiz-container">
-  <div class="quiz-title">My Quiz List</div>
-  <div class="quiz-box-container">
-    <% @my_quizzes.each_with_index do |quiz, index| %>
-      <% condition = @recently_created && index == 0 %>
-      <div class="quiz-box <%= condition ? 'new_quiz_background' : '' %>">
-        <%= link_to quiz_path(quiz), class: "no-underline" do %>
-          <div class="quiz-content">
-            <div class="content">
-              <div>
-                <h3><%= quiz.title %></h3>
+<div class="wrapper">
+  <div class="quiz-container">
+    <div class="quiz-title">My Quiz List</div>
+    <div class="quiz-box-container">
+      <% @my_quizzes.each_with_index do |quiz, index| %>
+        <% condition = @recently_created && index == 0 %>
+        <div class="quiz-box <%= condition ? 'new_quiz_background' : '' %>">
+          <%= link_to quiz_path(quiz), class: "no-underline" do %>
+            <div class="quiz-content">
+              <div class="content">
+                <div>
+                  <h3><%= quiz.title %></h3>
+                </div>
+                <div>
+                  <%= link_to  new_quiz_quiz_result_path(quiz), class: "no-underline", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your Quiz?" } do %>
+                    <i class="fa-regular fa-circle-xmark fa-lg" style="color: #e50b0b;"></i>
+                  <% end %>
+                </div>
               </div>
-              <div>
-                <%= link_to quiz_path(quiz), class: "no-underline", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your Quiz?" } do %>
-                  <i class="fa-regular fa-circle-xmark fa-lg" style="color: #e50b0b;"></i>
-                <% end %>
+              <div class="content">
+                <div class="donut">
+                	<div class="donut__gap">75%</div>
+                </div>
               </div>
             </div>
-            <div class="content">
-              <div class="donut">
-              	<div class="donut__gap">75%</div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
+          <% end %>
+        </div>
+      <% end %>
+     <div class="navbar-container">
+       <div class="navbar">
+         <button class="navbar-button">
+           <%= link_to image_tag("home-button.svg", alt: "Home Button"), quizzes_path %>
+         </button>
+         <button class="navbar-button">
+           <%= link_to image_tag("home-button.svg", alt: "New Button"), new_quiz_path %>
+         </button>
+         <button class="navbar-button">
+           <%= link_to image_tag("home-button.svg", alt: "Avatar Button"), profile_path %>
+         </button>
+       </div>
+     </div>
+    </div>
   </div>
 </div>

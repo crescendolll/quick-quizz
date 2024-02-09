@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   private
 
   def after_sign_in
-    profile_path
+    root_path
+  end
+
+  def after_sign_out_path
+    new_user_session_path
   end
 end

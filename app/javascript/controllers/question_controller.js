@@ -11,15 +11,16 @@ export default class extends Controller {
 
     const first_question = this.questionTargets[0];
     first_question.classList.remove('invisible');
+    const last_question = this.questionTargets[this.questionTargets.length - 1];
 
     this.questionTargets.forEach((question, i) => {
       question.addEventListener('click', () => {
-        question.classList.add('invisible');
+        if (question !== last_question) {
+          question.classList.add('invisible');
+        };
         question.nextElementSibling.classList.remove('invisible');
         // console.log(question);
       });
     });
-
-    console.log(this.submitTarget);
   }
 }
