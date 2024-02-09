@@ -5,4 +5,8 @@ class QuizResult < ApplicationRecord
 
   validates :result, presence: true, numericality: true
   accepts_nested_attributes_for :answers
+
+  def result_percentage
+    result*100
+  end
 end
