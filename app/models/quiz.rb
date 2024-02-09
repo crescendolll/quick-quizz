@@ -7,6 +7,7 @@ class Quiz < ApplicationRecord
   has_many :recommendations, dependent: :destroy
   # after_create :generate_quiz
   attr_accessor :text, :content
+  after_create :create_quiz_result
 
   # validates :title, presence: true
   # def questions
@@ -75,4 +76,11 @@ class Quiz < ApplicationRecord
 
   #   return response
   # end
+
+  private
+
+  def create_quiz_result
+    quiz_results.create(user: user, result: 0.0)
+  end
+
 end
