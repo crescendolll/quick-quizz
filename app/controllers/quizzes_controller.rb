@@ -4,7 +4,7 @@ class QuizzesController < ApplicationController
 
   def index
     @user = current_user
-    @my_quizzes = Quiz.where(user: @user).order(created_at: :desc)
+    @my_quiz_results = QuizResult.where(user: @user).order(created_at: :desc)
     @recently_created = request&.referer&.include?("new")
   end
 
