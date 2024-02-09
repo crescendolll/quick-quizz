@@ -6,16 +6,22 @@
 
             <div data-controller="quiz-form">
               <div class="quiz-box">
-                <%= f.label :image %>
+                <%= f.label :image, "Upload Note: " %>
                 <%= f.file_field :image, as: :file, input_html: { placeholder: "Your Note" }, data: { quiz_form_target: "imageInput", action: "change->quiz-form#toggleInputs"  } %>
               </div>
-
+              <div class="quiz-title" style="text-align: center;">OR</div>
               <div class="quiz-box">
-                <%= f.label :text %>
+                <%= f.label :text, "Enter Quiz Topic: " %>
                 <%= f.text_field :text, data: { quiz_form_target: "textInput", action: "change->quiz-form#toggleInputs"  } %>
               </div>
-                 <%= f.submit "Create Quiz!", class: "green-button" %>
+                 <%= f.submit "Create Quiz!", class: "green-button mb-3" %>
             </div>
+
           <% end %>
         </div>
+
+            <div class="quiz-title">Daily Quote</div>
+             <div class="quote-card">
+                <p>"UPDATE ZenApi - Learning never exhausts the mind.” ― Leonardo da Vinci"</p>
+             </div>
 </div>

@@ -6,6 +6,12 @@ class QuizzesController < ApplicationController
     @user = current_user
     @my_quizzes = Quiz.where(user: @user).order(created_at: :desc)
     @recently_created = request&.referer&.include?("new")
+
+    # Ensure that 'id' parameter is present in the request before attempting to find the QuizResult
+    return unless params[:id].present?
+
+    @quiz_result = QuizResult.find(params[:id])
+    @quiz_result.result = @quiz_result.answers.select { |answer| answer.choice.correct }.count * 100 / @quiz_result.answers.count.to_f
   end
 
   def show
