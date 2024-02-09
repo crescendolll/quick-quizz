@@ -1,1 +1,81 @@
 // Specific CSS for your home-page
+.quizzes-card-home {
+  background-color: $light-purple;
+  width: 100%;
+  // height: 180px;
+  margin: 0 auto;
+  padding: 10px 5px;
+  border-radius: 1rem;
+  box-shadow: 8px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.quizzes-donuts {
+  display: flex;
+  flex-direction: row;
+}
+
+.quizzes-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.quiz-donut-with-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto 5px;
+}
+
+.donut-home {
+	--progress: 75%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background: conic-gradient(green var(--progress), #fff 0 100%);
+  // margin-left: auto;
+}
+
+.donut__gap-home {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 45px;
+	height: 45px;
+	background: $light-purple;
+	border-radius: 50%;
+  color: $white-text;
+}
+
+.donut-text {
+  text-decoration: none;
+  color: $white-text;
+}
+
+.feed-title {
+  font-size: $small-text;
+  color: $white-text;
+  margin-top: 1rem;
+}
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  // min-height: 35vh;
+  margin: 20px 0;
+  padding: 15px 20px;
+  border-radius: $border-radius;
+  background-color: $light-purple;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  font-size: $small-text;
+  color: $white-text;
+}
+
+.like-comment {
+  margin-top: 10px;
+  color: $light-gray;
+}
