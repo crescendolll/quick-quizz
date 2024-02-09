@@ -1,5 +1,12 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: calc(100vh - $header-height);
+}
+
+.wrapper2 {
+  background-color: $dark-purple;
+  color: $white-text;
+  overflow: hidden;
+  padding: 20px;
 }

@@ -1,4 +1,5 @@
 .quiz-container {
+  height: calc(100vh - 70px);
   background-color: $dark-purple;
   margin-top: 1rem;
   padding: 0 25px;
@@ -64,5 +65,10 @@
 }
 
 .new_quiz_background {
-  background-color: lightblue;
+  background-color: $green;
+}
+
+.quizzes-percentage {
+  margin: 0;
+  font-size: $small-text;
 }
