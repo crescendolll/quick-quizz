@@ -1,8 +1,10 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
 
   def home
-    redirect_to profile_path if user_signed_in?
+    @quiz_results = QuizResult.where(user_id: current_user.id)
+
+    # TODO: this is just a mockup, replace with actual data when we have a structure
+    @feed = User.where.not(id: 2).last(5)
   end
 
   def profile

@@ -41,4 +41,18 @@
       <% end %>
     </div>
   <% end %>
+
+  <div class="navbar-container">
+    <div class="navbar">
+      <button class="navbar-button">
+        <%= link_to image_tag("home-button.svg", alt: "Home Button"), quizzes_path %>
+      </button>
+      <button class="navbar-button">
+        <%= link_to image_tag("home-button.svg", alt: "New Button"), new_quiz_path %>
+      </button>
+      <button class="navbar-button">
+        <%= link_to image_tag("home-button.svg", alt: "Avatar Button"), profile_path %>
+      </button>
+    </div>
+  </div>
 </div>
