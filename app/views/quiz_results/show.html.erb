@@ -1,5 +1,5 @@
-<div class="quiz-result-container">
-  <h1 class="quiz-result-title">Results</h1>
+<div class="page-container">
+  <h1 class="">Results</h1>
 
   <div class="donut-container">
     <div class="end-donut" style="--progress: <%= @quiz_result.result %>%;">
@@ -41,18 +41,4 @@
       <% end %>
     </div>
   <% end %>
-
-  <div class="navbar-container">
-    <div class="navbar">
-      <button class="navbar-button">
-        <%= link_to image_tag("home-button.svg", alt: "Home Button"), quizzes_path %>
-      </button>
-      <button class="navbar-button">
-        <%= link_to image_tag("home-button.svg", alt: "New Button"), new_quiz_path %>
-      </button>
-      <button class="navbar-button">
-        <%= link_to image_tag("home-button.svg", alt: "Avatar Button"), profile_path %>
-      </button>
-    </div>
-  </div>
 </div>

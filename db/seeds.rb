@@ -41,6 +41,11 @@ puts "Creating users..."
   )
 end
 
+users = User.all
+users.each do |user|
+  user.update!(username: Faker::Internet.username)
+end
+
 puts "Creating 3 quizzes (with questions, choices and recommendations) for the second User..."
 
 panopt = Quiz.create!(user: User.second, title: "Panopticon")
