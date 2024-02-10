@@ -15,12 +15,12 @@
 }
 
 .quiz-title {
-  margin: 10px auto;
+  margin: 5px auto;
   font-size: $small-text;
 }
 
 .question-form {
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -32,7 +32,7 @@
   flex-direction: column;
   align-items: center;
   min-height: 35vh;
-  margin: 20px 25px;
+  margin: 20px 0;
   padding: 15px 20px;
   border-radius: $border-radius;
   background-color: $light-purple;

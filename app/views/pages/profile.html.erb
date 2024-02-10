@@ -1,63 +1,64 @@
-<div class="wrapper1">
-  <div class="profile-container">
+<div class="page-container">
+  <%# <div class="profile-container"> %>
     <h1>Profile</h1>
 
-    <div class="profile-info">
+    <div class="profile">
       <%= image_tag "profile.png", alt: "Profile Picture", class: "profile-picture" %>
-      <h2 class="username">Username :<br><%= current_user.email %></h2>
+      <h2 class="username large-text"><%= current_user.username %></h2>
+      <h3 class="small-text"><%= current_user.email %></h3>
+      <h3 class="small-text">Active since · <%= current_user.created_at.strftime("%Y-%m-%d") %></h3>
     </div>
 
     <div class="profile-stats">
-      <div class="profile-info">
-        <h2>Created Quizzes</h2>
+      <div class="profile-stat">
+        <div class="large-text">
+          <%= @created_quizzes.count %>
+        </div>
+        <h2 class="small-text">Created Quizzes</h2>
+        <!--
         <% @created_quizzes.each do |quiz| %>
           <p><%= quiz.title %></p>
         <% end %>
+        -->
       </div>
 
-      <div class="profile-info">
-        <h2>Taken Quizzes</h2>
+      <div class="profile-stat">
+        <div class="large-text">
+          <%= @taken_quizzes.count %>
+        </div>
+        <h2 class="small-text">Taken Quizzes</h2>
+        <!--
         <% @taken_quizzes.each do |quiz| %>
           <p><%= quiz.title %></p>
         <% end %>
+        -->
       </div>
 
-      <div class="profile-info">
-        <p><%= @average_score %></p>
-        <h2>Average Score</h2>
+      <div class="profile-stat">
+          <div class="large-text">
+            <%= @average_score.round(2) %>
+          </div>
+        <h2 class="small-text">Average Score</h2>
       </div>
     </div>
 
     <div class="profile-buttons">
-      <%= link_to settings_path, class: "profile-button" do %>
+      <!--
+      <%= link_to settings_path, class: "wide-button" do %>
         <%= image_tag("home-button.svg", alt: "Settings Icon", class: "button-icon") %>
         <span class="button-text">Settings</span>
       <% end %>
-
-      <%= link_to edit_user_registration_path, class: "profile-button" do %>
-        <%= image_tag("home-button.svg", alt: "Change Password Icon", class: "button-icon") %>
+      -->
+      <%= link_to edit_user_registration_path, class: "wide-button" do %>
+        <i class="fa-solid fa-lock button-icon"></i>
         <span class="button-text">Change Password</span>
       <% end %>
 
-      <%= link_to community_path, class: "profile-button" do %>
-        <%= image_tag("home-button.svg", alt: "Community Icon", class: "button-icon") %>
+      <%= link_to community_path, class: "wide-button" do %>
+        <i class="fa-solid fa-user-group button-icon"></i>
         <span class="button-text">Community</span>
       <% end %>
     </div>
 
-  </div>
-
-  <div class="navbar-container">
-    <div class="navbar">
-      <button class="navbar-button">
-        <%= link_to image_tag("quizlist.svg", alt: "Home Button"), quizzes_path %>
-      </button>
-      <button class="navbar-button">
-        <%= link_to image_tag("home-button.svg", alt: "Home Button"), root_path %>
-      </button>
-      <%= button_to logout_path, method: :delete, class: "navbar-button", data: { confirm: "Are you sure you want to log out?" } do %>
-        Log Out
-      <% end %>
-    </div>
-  </div>
+  <%# </div> %>
 </div>

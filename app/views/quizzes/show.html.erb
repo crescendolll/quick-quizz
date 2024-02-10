@@ -1,23 +1,10 @@
-<div class="wrapper">
-  <div class="quiz-container">
-<!-- TODO: make better/prettier -->
-    <div class="quiz-link-container">
-      <div><%= @quiz.title %></div>
-      <%= link_to "Start the quiz", new_quiz_quiz_result_path(@quiz) %>
+<div class="page-container m-auto">
+  <!-- TODO: make better/prettier -->
+  <div class="alert-card">
+    <div class="alert-title">
+      <%= @quiz.title %>
     </div>
-<!-- TODO: make better/prettier -->
+    <%= link_to "Start the quiz", new_quiz_quiz_result_path(@quiz), class: "wide-button green-button centered-button" %>
   </div>
-  <div class="navbar-container">
-    <div class="navbar">
-      <button class="navbar-button">
-        <%= link_to image_tag("home-button.svg", alt: "Home Button"), quizzes_path %>
-      </button>
-      <button class="navbar-button">
-        <%= link_to image_tag("home-button.svg", alt: "New Button"), new_quiz_path %>
-      </button>
-      <button class="navbar-button">
-        <%= link_to image_tag("home-button.svg", alt: "Avatar Button"), profile_path %>
-      </button>
-    </div>
-  </div>
+  <!-- TODO: make better/prettier -->
 </div>

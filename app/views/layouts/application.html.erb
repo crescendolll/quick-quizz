@@ -11,13 +11,14 @@
   </head>
 
   <body class="h-100">
-    <div class="wrapper">
-      <%= render "shared/navbar-mobile" %>
+    <%= render "shared/navbar-top" %>
+    <div class="display">
       <%# <%= render "shared/navbar" %>
       <%= render "shared/flashes" %>
 
 
       <%= yield %>
     </div>
+    <%= render "shared/navbar-bottom" %>
   </body>
 </html>
