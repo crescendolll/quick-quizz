@@ -2,7 +2,7 @@
   height: $header-height;
   position: fixed;
   width: 100vw;
-  background-color: $dark-purple;
+  // background-color: $dark-purple;
   color: $white-text;
   display: flex;
   flex-direction: row;
@@ -11,13 +11,39 @@
   padding: 0 10px;
 }
 
-.navbar-bottom {
-  bottom: 0;
+// .navbar-bottom {
+//   bottom: 0;
+//   position: fixed;
+//   width: 100vw;
+//   height: 72px;
+//   background-color: $light-purple;
+//   color: $white-text;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-around;
+//   align-items: center;
+//   padding-bottom: 5px;
+// }
+
+.navbar-shadow {
+  width: 100%;
   position: fixed;
-  width: 100vw;
-  height: 72px;
-  background-color: $light-purple;
-  color: $white-text;
+  bottom: 0;
+  height: 150px;
+  background: linear-gradient(0deg, rgb(0, 0, 0) 11.8%, rgb(255, 255, 255) 83.8%);
+  opacity: 0.2;
+}
+
+.navbar-bottom {
+  bottom: 30px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 60px;
+  background-color: white;
+  border-radius: 30px;
+  color: $text-color;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -30,7 +56,7 @@
   flex-direction: column;
   align-items: center;
   text-decoration: none;
-  color: $white-text;
+  color: $text-color;
   margin: 0;
   padding: 0;
 }
@@ -39,10 +65,8 @@
   font-size: $large-text;
   margin: 0;
   padding: 0;
-  // margin-top: 5px
 }
 
 .navbar-button-text {
   font-size: $xs-text;
-  // margin-top: 5px;
 }

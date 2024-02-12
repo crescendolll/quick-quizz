@@ -1,6 +1,5 @@
 <div class="page-container">
-  <div class="quizlist-container">
-    <div class="quizzes-card-home">
+  <div class="card-basic">
       <div class="quizzes-donuts">
         <% @quiz_results.first(3).each do |result| %>
           <div class="quiz-donut-with-name">
@@ -11,8 +10,7 @@
           </div>
         <% end %>
       </div>
-      <div class="wide-button green-button">Quiz List</div>
-    </div>
+      <div class="wide-button">Quiz List</div>
   </div>
 
   <!-- TODO: FEED -->
@@ -25,7 +23,7 @@
       <%= link_to "Like", root_path %>
     <% end %>
     -->
-    <div class="event-card">
+    <div class="card-basic">
       Michael Bubble <br/>
       Broke a new record on a quiz about apples
       <div class="like-comment">
@@ -33,7 +31,7 @@
       </div>
     </div>
 
-    <div class="event-card">
+    <div class="card-basic">
       Sergio Alonso <br/>
       Created a new quiz for types of antibiotics. Check it out!
       <div class="like-comment">
@@ -41,7 +39,7 @@
       </div>
     </div>
 
-    <div class="event-card">
+    <div class="card-basic">
       Natasha Brian <br/>
       Scored at 80% on a quiz about having a baby
       <div class="like-comment">
