@@ -31,8 +31,7 @@ class QuizzesController < ApplicationController
     @quiz.user = current_user
     if @quiz.save
       if @quiz.image.attached?
-        # temp = Tempfile.new(["image"])
-        temp = Tempfile.new ["image", ".jpg"], Rails.root.join('tmp') #"#{Rails.root}/tmp"
+        temp = Tempfile.new ["image", ".jpg"], Rails.root.join('tmp')
         temp.binmode
         temp.write(URI.open(@quiz.image.url).read)
         temp.rewind
