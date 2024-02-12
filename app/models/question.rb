@@ -1,15 +1,15 @@
 class Question < ApplicationRecord
   belongs_to :quiz
   has_many :choices, dependent: :destroy
-  # attr_accessor :content
   validates :question, presence: true
-  # after_create :generate_choices
+  attr_accessor :content
 
-
-  # private
-  # def generate_choices
-  #   binding.pry
-  #   console.log(content)
-  #   # choices.create()
-  # end
+  def generate_choices(content)
+    choices.create([
+      {choice: content["options"]["option1"]["body"], correct: content["options"]["option1"]["isItCorrect"]},
+      {choice: content["options"]["option2"]["body"], correct: content["options"]["option2"]["isItCorrect"]},
+      {choice: content["options"]["option3"]["body"], correct: content["options"]["option3"]["isItCorrect"]},
+      {choice: content["options"]["option4"]["body"], correct: content["options"]["option4"]["isItCorrect"]}
+    ])
+  end
 end
