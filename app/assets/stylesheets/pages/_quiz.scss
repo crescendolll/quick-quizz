@@ -28,6 +28,9 @@
 }
 
 .question-card {
+  background-color: white;
+  color: $text-color;
+  opacity: 0.89;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,7 +38,6 @@
   margin: 20px 0;
   padding: 15px 20px;
   border-radius: $border-radius;
-  background-color: $light-purple;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
   font-size: $big-text;
 }

@@ -16,7 +16,7 @@
             <div>
               <%= f.fields_for :answers do |ff| %>
                 <% ff.collection_radio_buttons(:choice_id, question.choices, :id, :choice) do |b| %>
-                  <%= b.label(:"data-value" => b.value, class: "wide-button") { b.radio_button + b.text } %>
+                  <%= b.label(:"data-value" => b.value, class: "wide-button white-button") { b.radio_button + b.text } %>
                 <% end %>
               <% end %>
             </div>
