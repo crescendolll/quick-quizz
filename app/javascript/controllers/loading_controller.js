@@ -2,16 +2,14 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="loading"
 export default class extends Controller {
+  static targets = ["loadingPopup", "loading"]
+
   connect() {
-    this.element.classList.add('hidden')
   }
 
   show() {
-    this.element.classList.remove('hidden')
+    this.loadingPopupTarget.classList.add('d-none')
+    this.loadingTarget.classList.remove('d-none')
   }
 
-  hide() {
-    this.element.classList.add('hidden')
-
-  }
 }
