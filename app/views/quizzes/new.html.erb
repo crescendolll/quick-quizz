@@ -18,9 +18,12 @@
         <%= f.text_area :text, placeholder: "Type the topic here...", class: "question-text-area custom-placeholder input-wrapper", data: { quiz_form_target: "textInput", action: "change->quiz-form#toggleInputs" } %>
       </div>
 
+
       <div class="centered-button">
-        <%= f.submit "Submit", class: "wide-button green-button button-wrapper" %>
+        <%= f.submit "Create Quiz!", data: { action: "click->loading#show" }, class: "wide-button green-button button-wrapper" %>
       </div>
+
+
     <% end %>
   </div>
 </div>
