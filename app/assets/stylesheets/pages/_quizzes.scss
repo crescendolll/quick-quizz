@@ -30,14 +30,17 @@
   align-items: center;
 }
 
-.text {
+.quiz-content a {
+  text-decoration: none;
+}
+
+.quiz-list-text {
   flex-grow: 1;
   text-decoration: none;
   color: $text-color;
-}
-
-.no-underline {
   text-decoration: none;
+  // max-width: 95%;
+  font-size: $small-medium-text;
 }
 
 .donut {
@@ -45,8 +48,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 60px;
-	height: 60px;
+	width: 65px;
+	height: 65px;
 	border-radius: 50%;
 	background: conic-gradient($light-purple var(--progress), $very-light-purple 0 100%);
   margin-left: auto;
@@ -59,9 +62,9 @@
 	justify-content: center;
 	width: 45px;
 	height: 45px;
-	background: $light-purple;
+	background: white;
 	border-radius: 50%;
-  color: $white-text;
+  color: $text-color;
 }
 
 .new_quiz_background {
@@ -71,4 +74,9 @@
 .quizzes-percentage {
   margin: 0;
   font-size: $small-text;
+  color: $text-color;
+}
+
+.delete-button {
+  color: $light-purple;
 }

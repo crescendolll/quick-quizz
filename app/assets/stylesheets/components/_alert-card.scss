@@ -1,3 +1,8 @@
+.alert-container {
+  height: 100%;
+  margin: auto 0;
+}
+
 .alert-card {
   display: flex;
   flex-direction: column;
@@ -12,6 +17,9 @@
 }
 
 .alert-title {
-  margin: 20px 0;
+  width: 100%;
   font-size: $medium-text;
+  display: flex;
+  margin: 20px 0;
+  justify-content: center;
 }

@@ -1,5 +1,5 @@
 <div class="page-container">
-  <h1 class="">Results</h1>
+  <h1 class="page-title-lg">Results</h1>
 
   <div class="donut-container">
     <div class="end-donut" style="--progress: <%= @quiz_result.result %>%;">
@@ -37,7 +37,7 @@
     <div>
       <h4 class="quiz-result-small-text">TODO: Find out more about:</h4>
       <% @wrong_answers.each do |wrong_answer| %>
-        <h3 class="wide-button"><%= wrong_answer.choice.question.question %></h3>
+        <h3 class="wide-button white-button"><%= wrong_answer.choice.question.question %></h3>
       <% end %>
     </div>
   <% end %>
