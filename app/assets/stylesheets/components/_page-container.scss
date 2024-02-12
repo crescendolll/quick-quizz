@@ -1,8 +1,10 @@
 .page-container {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   // height: calc(100% - 72px);
   // padding: top, bottom
   padding: 2rem 1rem;
-  color: $white-text;
+  color: $text-color;
 }

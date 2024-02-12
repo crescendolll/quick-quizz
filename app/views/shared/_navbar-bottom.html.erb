@@ -1,11 +1,14 @@
+<div class="navbar-shadow">
+</div>
+
 <div class="navbar-bottom">
   <%= link_to quizzes_path, class: "navbar-button" do %>
     <div class="navbar-button-icon">
       <i class="fa-solid fa-list"></i>
     </div>
-    <div class="navbar-button-text">
+    <%# <div class="navbar-button-text">
       Quiz List
-    </div>
+    </div> %>
   <% end %>
 
   <% if current_page?(root_url) %>
@@ -13,18 +16,18 @@
       <div class="navbar-button-icon">
         <i class="fa-solid fa-circle-plus"></i>
       </div>
-      <div class="navbar-button-text">
+      <%# <div class="navbar-button-text">
         New Quizz
-      </div>
+      </div> %>
     <% end %>
   <% else %>
     <%= link_to root_path, class: "navbar-button" do %>
       <div class="navbar-button-icon">
         <i class="fa-solid fa-house-chimney"></i>
       </div>
-      <div class="navbar-button-text">
+      <%# <div class="navbar-button-text">
         Home
-      </div>
+      </div> %>
     <% end %>
   <% end %>
 
@@ -32,9 +35,9 @@
     <div class="navbar-button-icon">
       <i class="fa-solid fa-user"></i>
     </div>
-    <div class="navbar-button-text">
+    <%# <div class="navbar-button-text">
       Profile
-    </div>
+    </div> %>
   <% end %>
 
   <!--

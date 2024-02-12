@@ -2,7 +2,7 @@
   <h1 class="medium-text">My Quiz List</h1>
   <% @my_quizzes.each_with_index do |(quiz, highest_result), index| %>
     <% condition = @recently_created && index == 0 %>
-    <div class="quiz-card <%= condition ? 'new_quiz_background' : '' %>">
+    <div class="card-basic <%= condition ? 'new_quiz_background' : '' %>">
       <%= link_to quiz_path(quiz), class: "no-underline" do %>
         <div class="quiz-content">
           <div>

@@ -21,20 +21,19 @@
   margin-bottom: 1rem;
   padding: 5px;
   border-radius: 1rem;
-  box-shadow: 8px 10px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 8px 10px 10px rgba(255, 255, 255, 0);
 }
 
 .quiz-content {
   display: flex;
   flex-direction: row;
-  padding: 0 10px;
   align-items: center;
 }
 
 .text {
   flex-grow: 1;
   text-decoration: none;
-  color: $white-text;
+  color: $text-color;
 }
 
 .no-underline {
@@ -49,7 +48,7 @@
 	width: 60px;
 	height: 60px;
 	border-radius: 50%;
-	background: conic-gradient(green var(--progress), #fff 0 100%);
+	background: conic-gradient($light-purple var(--progress), $very-light-purple 0 100%);
   margin-left: auto;
   min-width: 60px;
 }
