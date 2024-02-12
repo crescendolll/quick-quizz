@@ -1,3 +1,12 @@
+.display {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #6A5AE0 -10.0%, #1c1744 110.0%);
+  padding-bottom: 60px;
+  position: absolute;
+  z-index: -1;
+  overflow-x: hidden;
+}
+
 .circle1 {
   position: fixed;
   top: -100px;
@@ -6,6 +15,7 @@
   border-radius: 50%;
   width: 400px;
   height: 400px;
+  z-index: 0;
 }
 
 .circle2 {
