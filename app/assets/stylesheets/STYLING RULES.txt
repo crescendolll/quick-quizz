@@ -1,0 +1,41 @@
+STRUCTURE of each page:
+
+<-------- PAGE -------->
+  TOP NAVBAR (is present by default - rendered in application.html.erb)
+  DISPLAY (is present by default) - contains offset from top/bottom, has the background color, takes up full height
+    .page-container (contents of the page between the top and bottom navbars, has a default offset on the sides, default color: $white-text)
+  BOTTOM NAVBAR (is present by default)
+<-------- PAGE -------->
+
+
+CLASSES:
+
+CARDS
+.card-basic (basic card, takes up the entire width of the page-container, height is determined by the content)
+  if you need another type of card/container (with spefic height for example), create it in stylesheets/pages/NAME_OF_YOUR_VIEW.scss
+  if it is used repeatedly create a component in stylesheets/components
+
+BUTTONS
+.wide-button
+.green-button (addittion to button-wide)
+.centered-button
+.button-icon
+
+ALERTS / POP-UPS:
+.alert-card
+.alert-title
+
+
+
+VARIABLES:
+
+$xs-text
+$small-text
+$medium-text
+$large-text
+$big-text
+$xl-tex
+
+$header-height
+
+$border-radius

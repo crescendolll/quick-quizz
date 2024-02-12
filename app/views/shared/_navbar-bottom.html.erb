@@ -1,0 +1,54 @@
+<div class="navbar-bottom">
+  <%= link_to quizzes_path, class: "navbar-button" do %>
+    <div class="navbar-button-icon">
+      <i class="fa-solid fa-list"></i>
+    </div>
+    <div class="navbar-button-text">
+      Quiz List
+    </div>
+  <% end %>
+
+  <% if current_page?(root_url) %>
+    <%= link_to new_quiz_path, class: "navbar-button" do %>
+      <div class="navbar-button-icon">
+        <i class="fa-solid fa-circle-plus"></i>
+      </div>
+      <div class="navbar-button-text">
+        New Quizz
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to root_path, class: "navbar-button" do %>
+      <div class="navbar-button-icon">
+        <i class="fa-solid fa-house-chimney"></i>
+      </div>
+      <div class="navbar-button-text">
+        Home
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= link_to profile_path, class: "navbar-button" do %>
+    <div class="navbar-button-icon">
+      <i class="fa-solid fa-user"></i>
+    </div>
+    <div class="navbar-button-text">
+      Profile
+    </div>
+  <% end %>
+
+  <!--
+  <%= link_to profile_path, class: "navbar-button" do %>
+    <div class="navbar-button-icon">
+      <i class="fa-solid fa-user"></i>
+    </div>
+    <div class="navbar-button-text">
+      Profile
+    </div>
+  <% end %>
+
+  <%= button_to logout_path, method: :delete, class: "navbar-button", data: { confirm: "Are you sure you want to log out?" } do %>
+    Log Out
+  <% end %>
+  -->
+</div>

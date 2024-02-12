@@ -1,0 +1,9 @@
+// basic card, takes up the entire width of the container, height is determined by the content
+.card-basic {
+  background-color: $light-purple;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 5px;
+  border-radius: 1rem;
+  box-shadow: 8px 10px 10px rgba(0, 0, 0, 0.2);
+}

@@ -1,70 +1,53 @@
-<div class="wrapper">
-  <div class="quiz-container">
-    <div class="quizlist-container">
-      <div class="quizzes-card-home">
-        <div class="quizzes-donuts">
-          <% @quiz_results.first(4).each do |result| %>
-            <div class="quiz-donut-with-name">
-              <div class="donut-home">
-                <div class="donut__gap-home"><%= result.result.to_i * 10 %>%</div>
-              </div>
-              <%= link_to result.quiz.title, quiz_path(result.quiz), class: "donut-text" %>
+<div class="page-container">
+  <div class="quizlist-container">
+    <div class="quizzes-card-home">
+      <div class="quizzes-donuts">
+        <% @quiz_results.first(3).each do |result| %>
+          <div class="quiz-donut-with-name">
+            <div class="donut-home">
+              <div class="donut__gap-home"><%= result.result.to_i * 10 %>%</div>
             </div>
-          <% end %>
-        </div>
-        <div class="wide-button green-button">Quiz List</div>
+            <%= link_to result.quiz.title, quiz_path(result.quiz), class: "donut-text" %>
+          </div>
+        <% end %>
       </div>
-    </div>
-
-    <!-- TODO: FEED -->
-    <div class="feed-container">
-      <p class="feed-title">Feed - TODO</p>
-      <!--
-      <% @feed.each do |user| %>
-        <p>Do sth for each user: <%= user.email %></p>
-        <%= link_to "Comment", root_path %>
-        <%= link_to "Like", root_path %>
-      <% end %>
-      -->
-      <div class="event-card">
-        Michael Bubble <br/>
-        Broke a new record on a quiz about apples
-        <div class="like-comment">
-          Like  Comment
-        </div>
-      </div>
-
-      <div class="event-card">
-        Sergio Alonso <br/>
-        Created a new quiz for types of antibiotics. Check it out!
-        <div class="like-comment">
-          Like  Comment
-        </div>
-      </div>
-
-      <div class="event-card">
-        Natasha Brian <br/>
-        Scored at 80% on a quiz about having a baby
-        <div class="like-comment">
-          Like  Comment
-        </div>
-      </div>
-    </div>
-    <!-- TODO: FEED -->
-
-  </div>
-
-  <div class="navbar-container fixed-bottom">
-    <div class="navbar">
-      <button class="navbar-button">
-        <%= link_to image_tag("home-button.svg", alt: "Home Button"), quizzes_path %>
-      </button>
-      <button class="navbar-button">
-        <%= link_to image_tag("home-button.svg", alt: "New Button"), new_quiz_path %>
-      </button>
-      <button class="navbar-button">
-        <%= link_to image_tag("home-button.svg", alt: "Avatar Button"), profile_path %>
-      </button>
+      <div class="wide-button green-button">Quiz List</div>
     </div>
   </div>
+
+  <!-- TODO: FEED -->
+  <div class="feed-container">
+    <p class="feed-title">Feed - TODO</p>
+    <!--
+    <% @feed.each do |user| %>
+      <p>Do sth for each user: <%= user.email %></p>
+      <%= link_to "Comment", root_path %>
+      <%= link_to "Like", root_path %>
+    <% end %>
+    -->
+    <div class="event-card">
+      Michael Bubble <br/>
+      Broke a new record on a quiz about apples
+      <div class="like-comment">
+        Like  Comment
+      </div>
+    </div>
+
+    <div class="event-card">
+      Sergio Alonso <br/>
+      Created a new quiz for types of antibiotics. Check it out!
+      <div class="like-comment">
+        Like  Comment
+      </div>
+    </div>
+
+    <div class="event-card">
+      Natasha Brian <br/>
+      Scored at 80% on a quiz about having a baby
+      <div class="like-comment">
+        Like  Comment
+      </div>
+    </div>
+  </div>
+  <!-- TODO: FEED -->
 </div>
