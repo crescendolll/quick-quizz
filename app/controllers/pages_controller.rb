@@ -4,7 +4,13 @@ class PagesController < ApplicationController
     @quiz_results = QuizResult.where(user_id: current_user.id)
 
     # TODO: this is just a mockup, replace with actual data when we have a structure
-    @feed = User.where.not(id: 2).last(5)
+    # @feed = User.where.not(id: 2).last(5)
+
+    @quizzes = Quiz.all
+    @recent_quizzes = @quizzes.last(3)
+
+    # Fetch all quizzes with IDs where any user has scored 100%
+    @quiz_highscores = QuizResult.where("result >= ?", 0).order(created_at: :desc).limit(5)
   end
 
   def profile
