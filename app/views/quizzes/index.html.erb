@@ -1,17 +1,15 @@
 <div class="page-container">
-  <h1 class="medium-text">My Quiz List</h1>
+  <h1 class="page-title-lg">Quizz List</h1>
   <% @my_quizzes.each_with_index do |(quiz, highest_result), index| %>
     <% condition = @recently_created && index == 0 %>
     <div class="card-basic <%= condition ? 'new_quiz_background' : '' %>">
-      <%= link_to quiz_path(quiz), class: "no-underline" do %>
+      <%= link_to quiz_path(quiz) do %>
         <div class="quiz-content">
           <div>
-            <div class="text">
-              <h3><%= quiz.title %></h3>
-            </div>
+            <h3 class="quiz-list-text"><%= quiz.title %></h3>
             <div class="icon">
-              <%= link_to quiz_path(quiz), class: "no-underline", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this quizz?" } do %>
-                <i class="fa-regular fa-circle-xmark fa-lg" style="color: #e50b0b;"></i>
+              <%= link_to quiz_path(quiz), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this quizz?" } do %>
+                <i class="fa-solid fa-trash fa-lg delete-button"></i>
               <% end %>
             </div>
           </div>
@@ -27,5 +25,8 @@
         </div>
       <% end %>
     </div>
+  <% end %>
+  <%= link_to new_quiz_path do %>
+    <div class="new-quiz-button">+</div>
   <% end %>
 </div>
