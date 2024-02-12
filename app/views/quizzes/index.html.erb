@@ -10,7 +10,7 @@
               <h3><%= result.quiz.title %></h3>
             </div>
             <div class="icon">
-              <%= link_to new_quiz_quiz_result_path(result.quiz), class: "no-underline", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your Quiz?" } do %>
+              <%= link_to quiz_path(result.quiz), class: "no-underline", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your Quiz?" } do %>
                 <i class="fa-regular fa-circle-xmark fa-lg" style="color: #e50b0b;"></i>
               <% end %>
             </div>
