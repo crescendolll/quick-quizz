@@ -16,43 +16,34 @@
       <% end %>
   </div>
 
-  <!-- TODO: FEED -->
-
-  <div class="quizlist-container">
-    <p class="feed-title">Quick Qizz Events Feed</p>
+  <div class="card-basic">
+    <div class="feed-title row justify-content-center">Qizz Feed</div>
       <div>
-        <% @quiz_highscores.each do |quiz_result| %>
-          <div class="card-basic">
-            <p>Congratulations to <%= quiz_result.user.username %> for scoring <%= quiz_result.result %>%
-               in their "<%= quiz_result.quiz.title %>" quiz!</p>
-          </div>
-        <% end %>
+         <% @quiz_highscores.each do |quiz_highscore| %>
+           <div class="card-basic"> 🎉 CONGRATULATIONS !! 🏆 <br/>
+               <%= quiz_highscore.user.username %> scored <%= quiz_highscore.result %>%
+                in their "<%= quiz_highscore.quiz.title %>" quiz!
+                  <div>
+                     <i class="fa-regular fa-thumbs-up"></i>
+                     <i class="fa-regular fa-comment"></i>
+                  </div>
+             </div>
+           <% end %>
+       </div>
+
+        <div>
+          <% @recent_quizzes.each do |recent_quiz| %>
+            <div class="card-basic">
+              ✨ HOORAY !! ✨ <br/><%= recent_quiz.user.username %> created a new <%= recent_quiz.title %>
+                 Quiz!
+                  <div>
+                     <i class="fa-regular fa-thumbs-up"></i>
+                     <i class="fa-regular fa-comment"></i>
+                  </div>
+            </div>
+          <% end %>
         </div>
 
-
-    <div class="event-card">
-      Michael Bubble <br/>
-      Broke a new record on a quiz about apples
-      <div class="like-comment">
-        Like  Comment
-      </div>
-    </div>
-
-    <div class="card-basic">
-      Sergio Alonso <br/>
-      Created a new quiz for types of antibiotics. Check it out!
-      <div class="like-comment">
-        Like  Comment
-      </div>
-    </div>
-
-    <div class="card-basic">
-      Natasha Brian <br/>
-      Scored at 80% on a quiz about having a baby
-      <div class="like-comment">
-        Like  Comment
-      </div>
-    </div>
   </div>
-  <!-- TODO: FEED -->
+
 </div>

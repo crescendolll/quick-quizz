@@ -10,7 +10,7 @@ class PagesController < ApplicationController
     @recent_quizzes = @quizzes.last(3)
 
     # Fetch all quizzes with IDs where any user has scored 100%
-    @quiz_highscores = QuizResult.where("result >= ?", 0).order(created_at: :desc).limit(5)
+    @quiz_highscores = QuizResult.where("result >= ?", 80).order(created_at: :desc).limit(3)
   end
 
   def profile
