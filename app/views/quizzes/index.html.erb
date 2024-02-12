@@ -19,7 +19,7 @@
             <div class="donut" style="--progress: <%= quiz.quiz_results.last.result_percentage %>%;">
               <div class="donut__gap">
                 <h2 class="quizzes-percentage">
-                  <%= quiz.quiz_results.last.result_percentage %> %
+                  <%= quiz.quiz_results.last.result_percentage.to_i %> %
                 </h2>
               </div>
             </div>
