@@ -1,0 +1,48 @@
+.display {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #6A5AE0 -10.0%, #1c1744 110.0%);
+  padding-bottom: 60px;
+  z-index: -1;
+  overflow-x: hidden;
+}
+
+.circle1 {
+  position: fixed;
+  top: -100px;
+  right: -150px;
+  background: $light-purple;
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+  z-index: 0;
+}
+
+.circle2 {
+  position: fixed;
+  top: 250px;
+  left: -100px;
+  background: $light-purple;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+}
+
+.circle3 {
+  position: fixed;
+  top: 450px;
+  right: -60px;
+  background: $light-purple;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.circle4 {
+  position: fixed;
+  top: 600px;
+  left: 30px;
+  background: $light-purple;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+}
