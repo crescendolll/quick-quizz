@@ -8,8 +8,6 @@ gem 'rtesseract'
 #Image Storage
 gem "cloudinary"
 
-# image processing
-gem "ruby-vips"
 # Open AI
 gem "ruby-openai"
 
