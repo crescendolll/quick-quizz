@@ -21,7 +21,7 @@
     <p class="feed-title">Quick Qizz Events Feed</p>
       <div>
         <% @quiz_highscores.each do |quiz_result| %>
-          <div class="event-card">
+          <div class="card-basic">
             <p>Congratulations to <%= quiz_result.user.username %> for scoring <%= quiz_result.result %>%
                in their "<%= quiz_result.quiz.title %>" quiz!</p>
           </div>
