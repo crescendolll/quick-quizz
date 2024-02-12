@@ -9,9 +9,29 @@
   box-shadow: 8px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
+// .quizzes-donuts {
+//   height: 100%;
+//   display: flex;
+//   flex-direction: row;
+//   overflow-x: auto;
+//   overflow-y: hidden;
+//   margin-top: 10px;
+//   margin-bottom: 15px;
+// }
+
 .quizzes-donuts {
+  height: 100%;
   display: flex;
   flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  position: relative; /* Required for absolute positioning of pseudo-element */
+}
+
+.quizzes-donuts::-webkit-scrollbar {
+  display: none;
 }
 
 .quizzes-card-content {
@@ -22,9 +42,12 @@
 .quiz-donut-with-name {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  height: 100%;
+  min-width: 80px;
   align-items: center;
-  margin: auto 5px;
+  margin: 0 5px;
+  text-align: center;
+  text-decoration: none;
 }
 
 .donut-home {
@@ -32,19 +55,18 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 60px;
-	height: 60px;
+	width: 80px;
+	height: 80px;
 	border-radius: 50%;
-	background: conic-gradient($light-purple var(--progress), #fff 0 100%);
-  // margin-left: auto;
+	background: conic-gradient($light-purple var(--progress), $very-light-purple 0 100%);
 }
 
 .donut__gap-home {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 40px;
-	height: 40px;
+	width: 50px;
+	height: 50px;
 	background: white;
 	border-radius: 50%;
   color: $text-color;
@@ -52,12 +74,21 @@
 
 .donut-text {
   text-decoration: none;
+  color: $text-color;
+  line-height: 16px;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  margin-top: 6px;
 }
 
-.feed-title {
+.home-title {
   font-size: $small-text;
   color: $white-text;
-  margin-top: 1rem;
+  display: inline-block;
+  margin: 0 auto;
+  // margin-top: 1rem;
+  // left: 50%;
+  // transform: translateX(-50%);
 }
 
 .like-comment {

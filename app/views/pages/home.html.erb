@@ -1,28 +1,24 @@
 <div class="page-container">
+  <p class="home-title">Your Quizzes</p>
   <div class="card-basic">
       <div class="quizzes-donuts">
-        <% @quiz_results.first(3).each do |result| %>
+        <% @quiz_results.first(10).each do |result| %>
           <div class="quiz-donut-with-name">
-            <div class="donut-home">
+            <div class="donut-home" style="--progress: <%= result.result %>%;">
               <div class="donut__gap-home"><%= result.result.to_i * 10 %>%</div>
             </div>
             <%= link_to result.quiz.title, quiz_path(result.quiz), class: "donut-text" %>
           </div>
         <% end %>
       </div>
-      <div class="wide-button">Quiz List</div>
+      <%= link_to quizzes_path, class: "wide-button centered-button" do %>
+        Quiz List
+      <% end %>
   </div>
 
   <!-- TODO: FEED -->
+  <p class="home-title mt-3">Feed - TODO</p>
   <div class="feed-container">
-    <p class="feed-title">Feed - TODO</p>
-    <!--
-    <% @feed.each do |user| %>
-      <p>Do sth for each user: <%= user.email %></p>
-      <%= link_to "Comment", root_path %>
-      <%= link_to "Like", root_path %>
-    <% end %>
-    -->
     <div class="card-basic">
       Michael Bubble <br/>
       Broke a new record on a quiz about apples
