@@ -12,36 +12,25 @@
         <% end %>
       </div>
       <%= link_to quizzes_path, class: "wide-button centered-button" do %>
-        Quiz List
+        Quizz List
       <% end %>
   </div>
-
-  <!-- TODO: FEED -->
-  <p class="home-title mt-3">Feed - TODO</p>
-  <div class="feed-container">
-    <div class="card-basic">
-      Michael Bubble <br/>
-      Broke a new record on a quiz about apples
-      <div class="like-comment">
-        Like  Comment
+  <p class="home-title mt-3">Feed</p>
+  <div>
+    <% @sorted_quiz_feed.each do |event| %>
+      <div class="card-basic">
+        <% if event.is_a?(QuizResult) %>
+          🎉 CONGRATULATIONS !! 🏆 <br/>
+          <%= event.user.username %> scored <%= event.result %>%
+          in their <%= event.quiz.title %> Quizz!
+        <% elsif event.is_a?(Quiz) %>
+          ✨ HOORAY !! ✨ <br/><%= event.user.username %> created a new <%= event.title %> Quizz!
+        <% end %>
+        <div class="comment-like">
+          <i class="fa-regular fa-thumbs-up"></i>
+          <i class="fa-regular fa-comment"></i>
+        </div>
       </div>
-    </div>
-
-    <div class="card-basic">
-      Sergio Alonso <br/>
-      Created a new quiz for types of antibiotics. Check it out!
-      <div class="like-comment">
-        Like  Comment
-      </div>
-    </div>
-
-    <div class="card-basic">
-      Natasha Brian <br/>
-      Scored at 80% on a quiz about having a baby
-      <div class="like-comment">
-        Like  Comment
-      </div>
-    </div>
+    <% end %>
   </div>
-  <!-- TODO: FEED -->
 </div>
