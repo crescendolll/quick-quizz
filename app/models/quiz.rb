@@ -9,19 +9,20 @@ class Quiz < ApplicationRecord
   has_many :recommendations, dependent: :destroy
 
   attr_accessor :text, :content
-  after_create :generate_quiz
+
+  after_commit :generate_quiz, on: [:create]
 
 
   private
 
   def generate_quiz
-    if image.attached?
+    if !image.nil? || image.attached?
       temp = Tempfile.new ["image", ".jpg"], Rails.root.join('tmp')
       temp.binmode
       temp.write(URI.open(image.url).read)
       temp.rewind
       image = RTesseract.new(temp.path)
-      text = image.to_s
+      self.text = image.to_s
     end
     response = get_ai_answer
     response.each_with_index do |question, index|
