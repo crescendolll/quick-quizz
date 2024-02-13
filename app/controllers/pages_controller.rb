@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     @quizzes = Quiz.all
     @recent_quizzes = @quizzes.last(3)
 
-    @quiz_highscores = QuizResult.where("result >= ?", 0).order(created_at: :desc).limit(3)
+    @quiz_highscores = QuizResult.where("result >= ?", 1).order(created_at: :desc).limit(3)
 
     @quiz_feed = @recent_quizzes + @quiz_highscores
     @sorted_quiz_feed = @quiz_feed.sort_by(&:created_at).reverse

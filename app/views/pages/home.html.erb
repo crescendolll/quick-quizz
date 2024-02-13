@@ -4,8 +4,8 @@
       <div class="quizzes-donuts">
         <% @quiz_results.first(10).each do |result| %>
           <div class="quiz-donut-with-name">
-            <div class="donut-home" style="--progress: <%= result.result %>%;">
-              <div class="donut__gap-home"><%= result.result.to_i * 10 %>%</div>
+            <div class="donut-home" style="--progress: <%= (result.result*100).to_i %>%;">
+              <div class="donut__gap-home"><%= (result.result*100).to_i %>%</div>
             </div>
             <%= link_to result.quiz.title, quiz_path(result.quiz), class: "donut-text" %>
           </div>
@@ -21,15 +21,15 @@
       <div class="card-basic">
         <% if event.is_a?(QuizResult) %>
           🎉 CONGRATULATIONS !! 🏆 <br/>
-          <%= event.user.username %> scored <%= event.result %>%
-          in their <%= event.quiz.title %> Quizz!
+          <%= event.user.username %> scored <%= (event.result*100).to_i %>% in their <%= event.quiz.title %> Quizz!
+            <div data-controller="toggle" class="comment-like">
+              <div>
+                <i data-toggle-target="toggleLike" data-action="click->toggle#like" class="fa-regular fa-thumbs-up"></i>
+              </div>
+            </div>
         <% elsif event.is_a?(Quiz) %>
           ✨ HOORAY !! ✨ <br/><%= event.user.username %> created a new <%= event.title %> Quizz!
         <% end %>
-        <div class="comment-like">
-          <i class="fa-regular fa-thumbs-up"></i>
-          <i class="fa-regular fa-comment"></i>
-        </div>
       </div>
     <% end %>
   </div>
