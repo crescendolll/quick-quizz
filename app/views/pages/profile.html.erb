@@ -54,9 +54,9 @@
         <span class="button-text">Change Password</span>
       <% end %>
 
-      <%= link_to community_path, class: "wide-button" do %>
-        <i class="fa-solid fa-user-group button-icon"></i>
-        <span class="button-text">Community</span>
+      <%= link_to destroy_user_session_path, class: "wide-button" do %>
+        <i class="fa-solid fa-arrow-right-from-bracket button-icon"></i>
+        <span class="button-text">Log Out</span>
       <% end %>
     </div>
 
