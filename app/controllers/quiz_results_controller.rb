@@ -12,17 +12,19 @@ class QuizResultsController < ApplicationController
     @quiz_result.quiz = @quiz
     @quiz_result.user = current_user
 
-    # this was the count for the number of correct answers (1 out of 5)
-    # @quiz_result.result = (@quiz_result.answers.select { |answer| answer.choice.correct }.count)
-
+    # TODO refactor: remove presence true & add result calc in quiz_res model after create
     @quiz_result.result = 0
-    @quiz_result.save!
+    @quiz_result.save
+    if @quiz_result.answers.count > 0
+      @quiz_result.result = (@quiz_result.answers.select { |answer| answer.choice.correct }.count) / (@quiz_result.answers.count.to_f)
+    end
+    @quiz_result.save
     redirect_to quiz_result_path(@quiz_result)
   end
 
   def show
     @quiz_result = QuizResult.find(params[:id])
-    @quiz_result.result = (@quiz_result.answers.select { |answer| answer.choice.correct }.count)*100/(@quiz_result.answers.count.to_f)
+    @show_result = @quiz_result.result * 100
     @wrong_answers = @quiz_result.answers.select { |answer| !answer.choice.correct }
   end
 
