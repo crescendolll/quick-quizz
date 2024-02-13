@@ -12,6 +12,7 @@
   align-items: center;
   background-color: $light-purple;
   text-decoration: none;
+
   opacity: 1;
   &:hover, &:focus {
     background-color: $light-purple-hover;
@@ -51,6 +52,13 @@
   z-index: 5;
   text-decoration: none;
   color: $text-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.new-quiz-button::after {
+  content: "+";
+  position: relative;
+  top: -5px;
 }
 
 .white-button {
@@ -59,6 +67,10 @@
   &:hover, &:focus {
     background-color: $light-purple-hover;
   }
+}
+
+input[type="radio"] {
+  visibility: hidden;
 }
 
 .small-button {
