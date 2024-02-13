@@ -35,7 +35,7 @@ class QuizResult < ApplicationRecord
       model: "gpt-3.5-turbo-0125",
       messages: [{
         role: "system",
-        content: "You are a helpful assistant that generates answers to provided questions. Respond with answers no longer than 300 characters for each question. Provide your answer in a  JSON structure similar to this.
+        content: "You are a helpful assistant that generates answers to provided questions. Respond with answers that are at least three sentences long, but no longer than five sentences. Provide your answer in a  JSON structure similar to this.
           [
             {
               'topic: '<The provided topic of the quiz>',
@@ -48,7 +48,9 @@ class QuizResult < ApplicationRecord
               'answer': '<Your answer>'
             }
           ]
-          Under no circumstances use double quotes in your JSON response. Use single quotes instead. If you use double quotes, the JSON will be invalid and an error will occur. If you are unsure about the JSON structure, please refer to the example above."
+          Under no circumstances use double quotes in your JSON response. Use single quotes instead.
+          If you use double quotes, the JSON will be invalid and an error will occur. If you are unsure about the JSON structure, please refer to the example above.
+          Under no circumstances use any quotes or apostrophes inside the answers - rephrase the words if needed."
       },
       {
         role: "user",
@@ -64,13 +66,13 @@ class QuizResult < ApplicationRecord
           {
             'topic': 'History of the Roman Empire',
             'question': 'Which event is traditionally considered the fall of the Western Roman Empire?',
-            'answer': 'The traditional event marking the fall of the Western Roman Empire is the sack of Rome by the Visigoths in 410 CE. Led by Alaric I, this event symbolized the collapse of central authority and the vulnerability of Rome's defenses. This contributed to the empire's eventual fragmentation and decline.'
+            'answer': 'The traditional event marking the fall of the Western Roman Empire is the sack of Rome by the Visigoths in 410 CE. Led by Alaric I, this event symbolized the collapse of central authority and the vulnerability of the defences of Rome. This contributed to eventual fragmentation and decline of the empire.'
           }
           ]"
       }]
     })
 
-    raw_content = chatgpt_response["choices"][0]["message"]["content"].gsub("\\'", "AAA").gsub('"', '\\"').gsub("'", '"').gsub("AAA", "'")
+    raw_content = chatgpt_response["choices"][0]["message"]["content"].gsub("'s", "AAA").gsub('"', '\\"').gsub("'", '"').gsub("AAA", "'s")
     response = JSON.parse(raw_content)
 
     # self.update_columns(title: response[0]["topic"])

@@ -26,6 +26,9 @@ class QuizResultsController < ApplicationController
     @quiz_result = QuizResult.find(params[:id])
     @show_result = @quiz_result.result * 100
     @wrong_answers = @quiz_result.answers.select { |answer| !answer.choice.correct }
+    @answers = @quiz_result.answers
+    @recommendations = Recommendation.all
+    @quiz_recommendations = @recommendations.select { |recommendation| @wrong_answers.include?(recommendation.answer) }
   end
 
   private

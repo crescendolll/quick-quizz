@@ -38,6 +38,9 @@
       <h4 class="quiz-result-small-text">TODO: Find out more about:</h4>
       <% @wrong_answers.each do |wrong_answer| %>
         <h3 class="wide-button white-button"><%= wrong_answer.choice.question.question %></h3>
+        -----------------
+        <% recommendation = (@quiz_recommendations.select { |a| a.answer == wrong_answer }).last %>
+        <%= recommendation["recommendation"] %>
       <% end %>
     </div>
   <% end %>
