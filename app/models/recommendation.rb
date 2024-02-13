@@ -1,7 +1,7 @@
 require 'uri'
 
 class Recommendation < ApplicationRecord
-  belongs_to :quiz
+  belongs_to :answer
 
-  validates :link, presence: true, format: { with: URI.regexp }
+  validates :recommendation, presence: true
 end

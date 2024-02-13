@@ -1,4 +1,4 @@
-<div class="page-container">
+<div class="page-container" data-controller="pop-up">
   <h1 class="page-title-lg">Results</h1>
 
   <div class="donut-container">
@@ -37,7 +37,19 @@
     <div>
       <h4 class="quiz-result-small-text">TODO: Find out more about:</h4>
       <% @wrong_answers.each do |wrong_answer| %>
-        <h3 class="wide-button white-button"><%= wrong_answer.choice.question.question %></h3>
+        <div class="wide-button white-button small-medium-text" data-pop-up-target="question" data-action="pop-up#show"><%= wrong_answer.choice.question.question %></div>
+        <% recommendation = (@quiz_recommendations.select { |a| a.answer == wrong_answer }).last %>
+
+        <div data-pop-up-target="popUpAnswer" class="invisible">
+          <div class="backgound-pop-up">
+            <div class="card-basic pop-up">
+              <h2 class="recommendation-title"><%= wrong_answer.choice.question.question %></h2>
+              <%= recommendation["recommendation"] %>
+              <div class="wide-button" data-pop-up-target="popUpClose" data-action="pop-up#close">Close</div>
+            </div>
+          </div>
+        </div>
+
       <% end %>
     </div>
   <% end %>

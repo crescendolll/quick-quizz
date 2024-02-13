@@ -39,9 +39,6 @@ class QuizzesController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def destroy
     @quiz = Quiz.find(params[:id])
     @quiz.destroy
