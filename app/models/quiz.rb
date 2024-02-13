@@ -8,15 +8,17 @@ class Quiz < ApplicationRecord
   has_many :quiz_takers, through: :quiz_results, source: :user
   has_many :recommendations, dependent: :destroy
 
-  attr_accessor :text, :content
 
-  after_commit :generate_quiz, on: [:create]
+  attr_accessor :text, :content, :seed
+
+  after_commit :generate_quiz, on: [:create], unless: :seed
+
 
 
   private
 
   def generate_quiz
-    if !image.nil? || image.attached?
+    if image.attached?
       temp = Tempfile.new ["image", ".jpg"], Rails.root.join('tmp')
       temp.binmode
       temp.write(URI.open(image.url).read)
