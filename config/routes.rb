@@ -28,5 +28,7 @@ Rails.application.routes.draw do
     resources :answers, only: [ :create ]
   end
 
-  resources :quiz_results, only: [ :show ]
+  resources :quiz_results, only: [ :show ] do
+    resources :recommendations, only: [ :new, :create, :show ]
+  end
 end
