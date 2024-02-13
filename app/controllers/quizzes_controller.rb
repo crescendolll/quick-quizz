@@ -1,6 +1,6 @@
 require "open-uri"
 class QuizzesController < ApplicationController
-  skip_before_action :authenticate_user!
+  # skip_before_action :authenticate_user!
 
   def index
     # @my_quizzes = Quiz.includes(:quiz_results).where(user: current_user).order(created_at: :desc)
