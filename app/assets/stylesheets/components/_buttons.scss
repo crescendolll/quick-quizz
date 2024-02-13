@@ -84,3 +84,28 @@ input[type="radio"] {
   -o-box-shadow:0px 0px 20px #FFF;
   box-shadow:0px 0px 20px #FFF;
 }
+
+.small-button {
+  display: inline;
+  align-items: center;
+  border: none;
+  color: $text-color;
+  font-size: $xs-text;
+  padding: 10px 25px;
+  margin-top: 15px;
+  width: 150px;
+  border-radius: 26px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: $light-purple;
+  text-decoration: none;
+  opacity: 1;
+  &:hover, &:focus {
+    background-color: $light-purple-hover;
+  }
+}
+
+.small-button-right {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
