@@ -73,6 +73,18 @@ input[type="radio"] {
   visibility: hidden;
 }
 
+.boxbutton:active{
+  -webkit-transform:scale(0.9);
+  -moz-transform:scale(0.9);
+  -ms-transform:scale(0.9);
+  -o-transform:scale(0.9);
+  transform:scale(0.9);
+  -webkit-box-shadow:0px 0px 20px #FFF;
+  -moz-box-shadow:0px 0px 20px #FFF;
+  -o-box-shadow:0px 0px 20px #FFF;
+  box-shadow:0px 0px 20px #FFF;
+}
+
 .small-button {
   display: inline;
   align-items: center;
