@@ -9,29 +9,50 @@
   background-color: $light-purple;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
   font-size: $big-text;
-
 }
 
-.question-text-area::placeholder {
-  background-color: #a3a4f7;
-  border-radius: $border-radius;
-  color: $white-text;
+.input-card-title {
+  display: flex;
+  justify-content: center;
+  font-size: $small-medium-text;
+  color: $text-color;
+  margin-bottom: 10px;
+}
+
+#quiz_image {
+  padding-top: 40px;
+}
+
+.input-description {
+  margin-bottom: 40px;
+}
+
+.input-field-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // margin: 0 auto;
+  color: gray;
+  margin-top: 5px;
+}
+
+.input-text-area::placeholder {
   height: 100%;
   resize: none;
-  padding: 20px;
   box-sizing: border-box;
-
-
+  color: grey;
 }
 
-.question-text-area {
+.input-text-area {
+  width: 100%;
+  background-color: rgb(239, 239, 239);
+  opacity: 1;
+  color: $text-color;
+  font-size: $small-text;
   border-radius: $border-radius;
-  color: $white-text;
-  min-height: 270px;
-  resize: none;
-  padding: 15px;
-  box-sizing: border-box;
-  margin:10px;
+  height: 180px;
+  padding: 15px 20px;
   vertical-align: top;
   text-align: left;
 }
@@ -41,11 +62,11 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  padding: 20px;
+  padding-bottom: 20px;
 }
 
 .file-input-container input[type="file"] {
-  min-height: 170px;
+  // min-height: 170px;
   padding-top: 60px;
   padding-left: 80px;
   box-sizing: border-box;
@@ -59,7 +80,23 @@
 
 .or-divider {
   text-align: center;
-
   color: $white-text;
   font-weight: bold;
+  font-size: $medium-text;
+  margin-top: 10px;
+}
+
+.new-quiz-submit {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.new-quiz-submit-button {
+  // display: flex;
+  // justify-content: center;
+  width: 50%;
+  font-weight: bold;
+  position: fixed;
+  bottom: 105px;
 }

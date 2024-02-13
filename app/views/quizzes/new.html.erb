@@ -4,23 +4,27 @@
   </div>
   <div class="quiz-form">
     <%= simple_form_for @quiz, html: { multipart: true } do |f| %>
-      <div class="question-card1">
-        <%= f.label "Give your notes", class: "question-text-area-picture" %>
+      <div class="card-basic">
+        <%= f.label "Photo", class: "input-card-title" %>
         <div class="file-input-container">
           <%= f.file_field :image, as: :file, input_html: { placeholder: "Give your notes" }, data: { quiz_form_target: "imageInput", action: "change->quiz-form#toggleInputs" } %>
+        </div>
+        <div class="input-description">
+          <div class="input-field-text small-text">Add a photo of your notes</div>
+          <div class="input-field-text xs-text">pdf · jpeg</div>
         </div>
       </div>
 
       <div class="or-divider">OR</div>
 
-      <div class="question-card1">
-        <%= f.label "", class: "question-text-area-label" %>
-        <%= f.text_area :text, placeholder: "Type the topic here...", class: "question-text-area custom-placeholder input-wrapper", data: { quiz_form_target: "textInput", action: "change->quiz-form#toggleInputs" } %>
+      <div class="card-basic p-3">
+        <%= f.label "Text", class: "input-card-title" %>
+        <%= f.text_area :text, placeholder: "Paste your notes here...", class: "input-text-area", data: { quiz_form_target: "textInput", action: "change->quiz-form#toggleInputs" } %>
       </div>
 
       <div data-controller="loading" class="mt-5">
-        <div class="centered-button" >
-          <%= f.submit "Create Quiz!", data: { action: "click->loading#show", loading_target: "loadingPopup" }, class: "wide-button green-button button-wrapper boxbutton" %>
+        <div class="new-quiz-submit" >
+          <%= f.submit "Create Quizz!", data: { action: "click->loading#show", loading_target: "loadingPopup" }, class: "new-quiz-submit-button wide-button green-button centered-button boxbutton" %>
           <%= render "shared/loading-popup" %>
         </div>
       </div>
