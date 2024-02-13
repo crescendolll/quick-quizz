@@ -16,8 +16,7 @@ class QuizzesController < ApplicationController
     .distinct
     .map { |quiz| [quiz, quiz.quiz_results.maximum(:result)] }
 
-    @my_quizzes = my_quizzes + taken_quizzes
-    @sorted = @my_quizzes.sort_by(&:created_at).reverse
+    @sorted = (my_quizzes + taken_quizzes).sort_by { |quiz, _| quiz.created_at }.reverse
 
     @recently_created = request&.referer&.include?("new")
   end
