@@ -8,8 +8,8 @@ class Quiz < ApplicationRecord
   has_many :quiz_takers, through: :quiz_results, source: :user
   has_many :recommendations, dependent: :destroy
 
-  attr_accessor :text, :content
-  after_create :generate_quiz
+  attr_accessor :text, :content, :seed
+  after_create :generate_quiz, unless: :seed
 
 
   private

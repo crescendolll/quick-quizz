@@ -48,7 +48,7 @@ end
 
 puts "Creating 3 quizzes (with questions, choices and recommendations) for the second User..."
 
-panopt = Quiz.create!(user: User.second, title: "Panopticon")
+panopt = Quiz.create!(user: User.second, title: "Panopticon", seed: true)
 panopt.questions.create!([{ question: "What is the central concept of Foucault's view of panopticons?" },
                           { question: "According to Foucault, what effect does the panopticon design have on individuals?" },
                           { question: "The panopticon serves as a metaphor for which aspect of societal control?" },
@@ -80,7 +80,7 @@ panopt.recommendations.create!([{ link: "https://plato.stanford.edu/entries/fouc
                                 { link: "https://www.amazon.com/Surveillance-Studies-Reader-David-Lyon/dp/0745644954" }])
 panopt.save!
 
-techno = Quiz.create!(user: User.second, title: "Roots of Techno")
+techno = Quiz.create!(user: User.second, title: "Roots of Techno", seed: true)
 techno.questions.create!([{question: "Where did techno music originate in the 1980s?"},
                           {question: "Who are considered the pioneers of techno music?"},
                           {question: "Which electronic instrument played a significant role in the creation of techno music?"},
@@ -111,7 +111,7 @@ techno.recommendations.create!([{link: "https://ra.co/features/1151"},
                                 {link: "https://mixmag.net/feature/the-story-of-detroit-techno"}])
 techno.save!
 
-philips = Quiz.create!(user: User.second, title: "Philips curve")
+philips = Quiz.create!(user: User.second, title: "Philips curve", seed: true)
 philips.questions.create!([{question: "The Phillips curve depicts the relationship between which two economic variables?"},
                           {question: "According to the Phillips curve, what is the typical relationship between inflation and unemployment?"},
                           {question: "The Phillips curve suggests that when unemployment is low, what tends to happen to inflation?"},
@@ -143,7 +143,7 @@ philips.recommendations.create!([{link: "https://www.investopedia.com/terms/p/ph
 philips.save!
 
 puts "Creating 2 quizzes (with questions, choices and recommendations) owned by other users..."
-logic = Quiz.create!(user: User.where.not(id: 2).sample, title: "Formal Logic")
+logic = Quiz.create!(user: User.where.not(id: 2).sample, title: "Formal Logic", seed: true)
 logic.questions.create!([{question: "Which branch of logic deals with formal systems of reasoning, such as propositional and predicate logic?"},
                         {question: "What is the primary focus of formal logic?"},
                         {question: "In propositional logic, what are the basic components used to represent logical statements?"},
@@ -174,7 +174,7 @@ logic.recommendations.create!([{link: "https://plato.stanford.edu/entries/logic-
                               {link: "https://ocw.mit.edu/courses/linguistics-and-philosophy/24-241-logic-i-fall-2005/index.htm"}])
 logic.save!
 
-osint = Quiz.create!(user: User.where.not(id: 2).sample, title: "OSINT")
+osint = Quiz.create!(user: User.where.not(id: 2).sample, title: "OSINT", seed: true)
 osint.questions.create!([{question: "What does 'OSINT' stand for in the context of intelligence gathering?"},
                         {question: "Which of the following is NOT a step in the OSINT model?"},
                         {question: "What is the first step in the OSINT process?"},
