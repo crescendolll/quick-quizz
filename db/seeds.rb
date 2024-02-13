@@ -1,13 +1,5 @@
 require 'faker'
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+
 puts "Destroying all quiz results..."
 QuizResult.destroy_all
 puts "Destroying all answers..."
@@ -75,9 +67,6 @@ panopt.questions.fifth.choices.create!([ { choice: "Rehabilitation of individual
                                         { choice: "Prevention of crime", correct: false },
                                         { choice: "Preservation of social order", correct: true },
                                         { choice: "Promotion of individual liberty", correct: false } ])
-# panopt.recommendations.create!([{ recommendation: "https://plato.stanford.edu/entries/foucault/" },
-#                                 { recommendation: "https://www.amazon.com/Discipline-Punish-Birth-Michel-Foucault/dp/0679752552" },
-#                                 { recommendation: "https://www.amazon.com/Surveillance-Studies-Reader-David-Lyon/dp/0745644954" }])
 panopt.save!
 
 techno = Quiz.create!(user: User.second, title: "Roots of Techno", seed: true)
@@ -106,9 +95,6 @@ techno.questions.fifth.choices.create!([{choice: "Heavy use of vocal samples", c
                                         {choice: "Slow tempo and relaxed beats", correct: false},
                                         {choice: "Emphasis on melody and harmony", correct: false},
                                         {choice: "Repetitive rhythms and synthetic sounds", correct: true}])
-# techno.recommendations.create!([{recommendation: "https://ra.co/features/1151"},
-#                                 {recommendation: "https://daily.redbullmusicacademy.com/2015/08/origins-of-techno-feature"},
-#                                 {recommendation: "https://mixmag.net/feature/the-story-of-detroit-techno"}])
 techno.save!
 
 philips = Quiz.create!(user: User.second, title: "Philips curve", seed: true)
@@ -169,9 +155,6 @@ logic.questions.fifth.choices.create!([{choice: "Logical 'or'", correct: false},
                                       {choice: "Logical 'not'", correct: true},
                                       {choice: "Logical 'if-then'", correct: false},
                                       {choice: "Logical 'if and only if'", correct: false}])
-# logic.recommendations.create!([{recommendation: "https://plato.stanford.edu/entries/logic-classical/"},
-#                               {recommendation: "https://iep.utm.edu/symbolic/"},
-#                               {recommendation: "https://ocw.mit.edu/courses/linguistics-and-philosophy/24-241-logic-i-fall-2005/index.htm"}])
 logic.save!
 
 osint = Quiz.create!(user: User.where.not(id: 2).sample, title: "OSINT", seed: true)
@@ -200,9 +183,6 @@ osint.questions.fifth.choices.create!([{choice: "Collection", correct: false},
                                       {choice: "Analysis", correct: false},
                                       {choice: "Dissemination", correct: true},
                                       {choice: "Planning", correct: false}])
-# osint.recommendations.create!([{ recommendation: "https://osintframework.com/" },
-#                               { recommendation: "https://www.goodreads.com/book/show/23405917-open-source-intelligence-techniques" },
-#                               { recommendation: "https://www.europol.europa.eu/sites/default/files/documents/osint_handbook_guidelines_2020.pdf" }])
 osint.save!
 
 puts "Making second User take the panopt quiz..."

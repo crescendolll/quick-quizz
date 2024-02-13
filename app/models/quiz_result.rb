@@ -5,7 +5,9 @@ class QuizResult < ApplicationRecord
 
   validates :result, presence: true, numericality: true
   accepts_nested_attributes_for :answers
-  after_create :generate_ai_recommendations
+
+  attr_accessor :seed
+  after_create :generate_ai_recommendations, unless: :seed
 
   def result_percentage
     result*100
