@@ -1,15 +1,14 @@
 class PagesController < ApplicationController
   def home
-    @quiz_results = QuizResult.where(user_id: current_user.id)
+    @my_quizzes = Quiz.includes(:quiz_results)
+                          .where(user: current_user)
+                          .where.not(quiz_results: { id: nil }) # Ensures quizzes with at least one quiz_result
+                          .order(created_at: :desc)
+                          .map { |quiz| [quiz, quiz.quiz_results.maximum(:result)] }
+                          .first(10)
 
-    @quizzes = Quiz.all
-    @recent_quizzes = @quizzes.last(3)
-
-    @quiz_highscores = QuizResult.where("result >= ?", 1).order(created_at: :desc).limit(3)
-
-    @quiz_feed = @recent_quizzes + @quiz_highscores
-    @sorted_quiz_feed = @quiz_feed.sort_by(&:created_at).reverse
-    @sorted_quiz_feed = @sorted_quiz_feed.take(6)
+    @quiz_feed = Quiz.all.where.not(user: current_user).last(3) + QuizResult.where.not(user: current_user).where("result >= ?", 1).order(created_at: :desc).limit(3)
+    @sorted_quiz_feed = @quiz_feed.sort_by(&:created_at).reverse.take(6)
   end
 
   def profile

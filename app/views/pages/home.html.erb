@@ -2,12 +2,12 @@
   <p class="home-title">Your Quizzes</p>
   <div class="card-basic">
       <div class="quizzes-donuts">
-        <% @quiz_results.first(10).each do |result| %>
+        <% @my_quizzes.each do |quiz, highest_result| %>
           <div class="quiz-donut-with-name">
-            <div class="donut-home" style="--progress: <%= (result.result*100).to_i %>%;">
-              <div class="donut__gap-home"><%= (result.result*100).to_i %>%</div>
+            <div class="donut-home" style="--progress: <%= (highest_result*100).to_i %>%;">
+              <div class="donut__gap-home"><%= (highest_result*100).to_i %>%</div>
             </div>
-            <%= link_to result.quiz.title, quiz_path(result.quiz), class: "donut-text" %>
+            <%= link_to quiz.title, quiz_path(quiz), class: "donut-text" %>
           </div>
         <% end %>
       </div>
@@ -29,6 +29,11 @@
             </div>
         <% elsif event.is_a?(Quiz) %>
           ✨ HOORAY !! ✨ <br/><%= event.user.username %> created a new <%= event.title %> Quizz!
+          <div class="small-button-right mt-3">
+             <%= link_to quiz_path(event), class: "small-button centered-button" do %>
+               Take this Quizz!
+             <% end %>
+          </div>
         <% end %>
       </div>
     <% end %>
