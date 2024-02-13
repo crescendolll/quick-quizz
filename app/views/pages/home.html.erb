@@ -12,38 +12,24 @@
         <% end %>
       </div>
       <%= link_to quizzes_path, class: "wide-button centered-button" do %>
-        Quiz List
+        Quizz List
       <% end %>
   </div>
-
-  <div class="card-basic">
-    <div class="feed-title row justify-content-center">Qizz Feed</div>
-      <div>
-         <% @quiz_highscores.each do |quiz_highscore| %>
-           <div class="card-basic"> 🎉 CONGRATULATIONS !! 🏆 <br/>
-               <%= quiz_highscore.user.username %> scored <%= quiz_highscore.result %>%
-                in their "<%= quiz_highscore.quiz.title %>" quiz!
-                  <div>
-                     <i class="fa-regular fa-thumbs-up"></i>
-                     <i class="fa-regular fa-comment"></i>
-                  </div>
-             </div>
-           <% end %>
-       </div>
-
-        <div>
-          <% @recent_quizzes.each do |recent_quiz| %>
-            <div class="card-basic">
-              ✨ HOORAY !! ✨ <br/><%= recent_quiz.user.username %> created a new <%= recent_quiz.title %>
-                 Quiz!
-                  <div>
-                     <i class="fa-regular fa-thumbs-up"></i>
-                     <i class="fa-regular fa-comment"></i>
-                  </div>
-            </div>
-          <% end %>
+  <div>
+    <% @sorted_quiz_feed.each do |event| %>
+      <div class="card-basic">
+        <% if event.is_a?(QuizResult) %>
+          🎉 CONGRATULATIONS !! 🏆 <br/>
+          <%= event.user.username %> scored <%= event.result %>%
+          in their <%= event.quiz.title %> Quizz!
+        <% elsif event.is_a?(Quiz) %>
+          ✨ HOORAY !! ✨ <br/><%= event.user.username %> created a new <%= event.title %> Quizz!
+        <% end %>
+        <div class="comment-like">
+          <i class="fa-regular fa-thumbs-up"></i>
+          <i class="fa-regular fa-comment"></i>
         </div>
-
+      </div>
+    <% end %>
   </div>
-
 </div>
