@@ -1,6 +1,6 @@
 <div class="page-container">
   <h1 class="page-title-lg">Quizz List</h1>
-  <% @my_quizzes.each_with_index do |(quiz, highest_result), index| %>
+  <% @sorted.each_with_index do |(quiz, highest_result), index| %>
     <% condition = @recently_created && index == 0 %>
     <div class="card-basic <%= condition ? 'new_quiz_background' : '' %>">
       <%= link_to quiz_path(quiz) do %>
