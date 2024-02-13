@@ -2,7 +2,7 @@
   <%# <div class="profile-container"> %>
     <h1>Profile</h1>
 
-    <div class="profile">
+    <div class="profile white-text">
       <%= image_tag "profile.png", alt: "Profile Picture", class: "profile-picture" %>
       <h2 class="username large-text"><%= current_user.username %></h2>
       <h3 class="small-text"><%= current_user.email %></h3>
@@ -11,7 +11,7 @@
 
     <div class="profile-stats">
       <div class="profile-stat">
-        <div class="large-text">
+        <div class="large-text white-text">
           <%= @created_quizzes.count %>
         </div>
         <h2 class="small-text">Created Quizzes</h2>
@@ -23,7 +23,7 @@
       </div>
 
       <div class="profile-stat">
-        <div class="large-text">
+        <div class="large-text white-text">
           <%= @taken_quizzes.count %>
         </div>
         <h2 class="small-text">Taken Quizzes</h2>
@@ -35,7 +35,7 @@
       </div>
 
       <div class="profile-stat">
-          <div class="large-text">
+          <div class="large-text white-text">
             <%= @average_score.round(2) %>
           </div>
         <h2 class="small-text">Average Score</h2>
@@ -49,12 +49,12 @@
         <span class="button-text">Settings</span>
       <% end %>
       -->
-      <%= link_to edit_user_registration_path, class: "wide-button" do %>
+      <%= link_to edit_user_registration_path, class: "wide-button white-button" do %>
         <i class="fa-solid fa-lock button-icon"></i>
         <span class="button-text">Change Password</span>
       <% end %>
 
-      <%= link_to destroy_user_session_path, class: "wide-button" do %>
+      <%= link_to destroy_user_session_path, class: "wide-button white-button" do %>
         <i class="fa-solid fa-arrow-right-from-bracket button-icon"></i>
         <span class="button-text">Log Out</span>
       <% end %>
