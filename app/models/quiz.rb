@@ -8,8 +8,11 @@ class Quiz < ApplicationRecord
   has_many :quiz_takers, through: :quiz_results, source: :user
   has_many :recommendations, dependent: :destroy
 
+
   attr_accessor :text, :content, :seed
-  after_create :generate_quiz, unless: :seed
+
+  after_commit :generate_quiz, on: [:create], unless: :seed
+
 
 
   private
@@ -21,7 +24,7 @@ class Quiz < ApplicationRecord
       temp.write(URI.open(image.url).read)
       temp.rewind
       image = RTesseract.new(temp.path)
-      text = image.to_s
+      self.text = image.to_s
     end
     response = get_ai_answer
     response.each_with_index do |question, index|
