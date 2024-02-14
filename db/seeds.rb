@@ -34,10 +34,125 @@ puts "Creating users..."
   )
 end
 
+main_character = User.second
+main_character.update!(username: "rokas", email:"the_many_lives_of_stasilius@damn.son")
+
 puts "Creating quizzes (with questions and choices) for the second User..."
 
+puts "...adding a quiz about correct waste collection..."
+waste = Quiz.create!(user: main_character, title: "Correct Waste Collection", seed: true
+)
+waste.questions.create!([{ question: "What is the primary goal of waste collection?" },
+                        { question: "What are the main categories of waste?" },
+                        { question: "What are some common methods of waste disposal?" },
+                        { question: "What are the potential environmental impacts of improper waste collection and disposal?" },
+                        { question: "What are some best practices for reducing waste and promoting recycling?" }])
+waste.questions.first.choices.create!([{ choice: "To prevent the accumulation of waste in public spaces", correct: false },
+                                      { choice: "To minimize the environmental impact of waste", correct: true },
+                                      { choice: "To generate revenue from waste management", correct: false },
+                                      { choice: "To create jobs and employment opportunities", correct: false }])
+waste.questions.second.choices.create!([{ choice: "Biodegradable and non-biodegradable", correct: true },
+                                      { choice: "Organic and inorganic", correct: true },
+                                      { choice: "Recyclable and non-recyclable", correct: true },
+                                      { choice: "Hazardous and non-hazardous", correct: true }])
+waste.questions.third.choices.create!([{ choice: "Landfilling and incineration", correct: true },
+                                      { choice: "Composting and recycling", correct: true },
+                                      { choice: "Dumping and littering", correct: true },
+                                      { choice: "Reusing and repurposing", correct: true }])
+waste.questions.fourth.choices.create!([{ choice: "Soil and water pollution", correct: true },
+                                      { choice: "Air and noise pollution", correct: true },
+                                      { choice: "Habitat destruction and loss of biodiversity", correct: true },
+                                      { choice: "Climate change and global warming", correct: true }])
+waste.questions.fifth.choices.create!([{ choice: "Reduce, Reuse, Recycle", correct: true },
+                                      { choice: "Refuse, Reuse, Repurpose", correct: true },
+                                      { choice: "Recycle, Reclaim, Renew", correct: true },
+                                      { choice: "Recover, Reuse, Replenish", correct: true }])
+waste.save!
+
+puts "...taking the waste collection quiz..."
+qr = QuizResult.create!(quiz: waste, user: main_character, result: 0, seed: true)
+a1 = Answer.create!( choice: waste.questions.first.choices.sample, quiz_result: qr )
+a2 = Answer.create!( choice: waste.questions.second.choices.sample, quiz_result: qr )
+a3 = Answer.create!( choice: waste.questions.third.choices.sample, quiz_result: qr )
+a4 = Answer.create!( choice: waste.questions.fourth.choices.sample, quiz_result: qr )
+a5 = Answer.create!( choice: waste.questions.fifth.choices.sample, quiz_result: qr )
+
+puts "... and calculating the result based on the answers..."
+qr.result = qr.answers.map(&:choice).select(&:correct).count / qr.answers.count.to_f
+qr.save!
+
+puts "...adding a Roots of Techno quiz for the second User..."
+techno = Quiz.create!(user: main_character, title: "Roots of Techno", seed: true)
+techno.questions.create!([{question: "Where did techno music originate in the 1980s?"},
+                          {question: "Who are considered the pioneers of techno music?"},
+                          {question: "Which electronic instrument played a significant role in the creation of techno music?"},
+                          {question: "What musical genres influenced the development of techno music?"},
+                          {question: "What characteristics distinguish techno music from other electronic music genres?"}])
+techno.questions.first.choices.create!([{choice: "London, England", correct: false},
+                                        {choice: "Detroit, Michigan", correct: true},
+                                        {choice: "Chicago, Illinois", correct: false},
+                                        {choice: "Berlin, Germany", correct: false}])
+techno.questions.second.choices.create!([{choice: "The Chemical Brothers", correct: false},
+                                        {choice: "Kraftwerk", correct: false},
+                                        {choice: "Juan Atkins, Derrick May, and Kevin Saunderson", correct: true},
+                                        {choice: "Daft Punk", correct: false}])
+techno.questions.third.choices.create!([{choice: "Drum machine", correct: true},
+                                        {choice: "Synthesizer", correct: false},
+                                        {choice: "Electric guitar", correct: false},
+                                        {choice: "Theremin", correct: false}])
+techno.questions.fourth.choices.create!([{choice: "Jazz and Classical", correct: false},
+                                        {choice: "Rock and Roll", correct: false},
+                                        {choice: "Funk and Disco", correct: true},
+                                        {choice: "Country and Reggae", correct: false}])
+techno.questions.fifth.choices.create!([{choice: "Heavy use of vocal samples", correct: false},
+                                        {choice: "Slow tempo and relaxed beats", correct: false},
+                                        {choice: "Emphasis on melody and harmony", correct: false},
+                                        {choice: "Repetitive rhythms and synthetic sounds", correct: true}])
+techno.save!
+
+puts "...Architecture quiz for the second User..."
+architecture = Quiz.create!(user: main_character, title: "Architecture", seed: true)
+architecture.questions.create!([{ question: "What is the primary purpose of architecture?" },
+                              { question: "What are some key elements of architectural design?" },
+                              { question: "What role does sustainability play in modern architecture?" },
+                              { question: "What are some examples of iconic architectural landmarks around the world?" },
+                              { question: "What are some potential challenges and limitations of architectural design?" }])
+architecture.questions.first.choices.create!([{ choice: "To create functional and aesthetically pleasing spaces", correct: true },
+                                            { choice: "To maximize profits and minimize costs", correct: false },
+                                            { choice: "To promote social and cultural values", correct: false },
+                                            { choice: "To express individual creativity and personal style", correct: false }])
+architecture.questions.second.choices.create!([{ choice: "Form, function, and structure", correct: true },
+                                            { choice: "Color, texture, and pattern", correct: true },
+                                            { choice: "Scale, proportion, and balance", correct: true },
+                                            { choice: "Light, shadow, and reflection", correct: true }])
+architecture.questions.third.choices.create!([{ choice: "It emphasizes energy efficiency and environmental impact", correct: true },
+                                            { choice: "It prioritizes historical preservation and restoration", correct: false },
+                                            { choice: "It focuses on luxury and opulence", correct: false },
+                                            { choice: "It promotes technological innovation and advancement", correct: false }])
+architecture.questions.fourth.choices.create!([{ choice: "Eiffel Tower, Paris, France", correct: true },
+                                            { choice: "Sydney Opera House, Sydney, Australia", correct: true },
+                                            { choice: "Taj Mahal, Agra, India", correct: true },
+                                            { choice: "Burj Khalifa, Dubai, United Arab Emirates", correct: true }])
+architecture.questions.fifth.choices.create!([{ choice: "Budget constraints and financial limitations", correct: true },
+                                            { choice: "Regulatory restrictions and zoning laws", correct: true },
+                                            { choice: "Material availability and construction techniques", correct: true },
+                                            { choice: "Client preferences and design specifications", correct: true }])
+architecture.save!
+
+puts "...taking the Architecture quiz..."
+qr = QuizResult.create!(quiz: architecture, user: main_character, result: 0, seed: true)
+a1 = Answer.create!( choice: architecture.questions.first.choices.select(&:correct).first, quiz_result: qr )
+a2 = Answer.create!( choice: architecture.questions.second.choices.select(&:correct).first, quiz_result: qr )
+a3 = Answer.create!( choice: architecture.questions.third.choices.select(&:correct).first, quiz_result: qr )
+a4 = Answer.create!( choice: architecture.questions.fourth.choices.select(&:correct).first, quiz_result: qr )
+a5 = Answer.create!( choice: architecture.questions.fifth.choices.select(&:correct).first, quiz_result: qr )
+
+puts "... and calculating the result based on the answers..."
+qr.result = qr.answers.map(&:choice).select(&:correct).count / qr.answers.count.to_f
+qr.save!
+
 puts "...Panopticon quiz for the second User..."
-panopt = Quiz.create!(user: User.second, title: "Panopticon", seed: true)
+panopt = Quiz.create!(user: main_character, title: "Panopticon", seed: true)
 panopt.questions.create!([{ question: "What is the central concept of Foucault's view of panopticons?" },
                           { question: "According to Foucault, what effect does the panopticon design have on individuals?" },
                           { question: "The panopticon serves as a metaphor for which aspect of societal control?" },
@@ -67,7 +182,7 @@ panopt.questions.fifth.choices.create!([ { choice: "Rehabilitation of individual
 panopt.save!
 
 puts "...taking the Panopticon quiz..."
-qr1 = QuizResult.create!(quiz: panopt, user: User.second, result: 0, seed: true)
+qr1 = QuizResult.create!(quiz: panopt, user: main_character, result: 0, seed: true)
 a1 = Answer.create!( choice: panopt.questions.first.choices.sample, quiz_result: qr1 )
 a2 = Answer.create!( choice: panopt.questions.second.choices.sample, quiz_result: qr1 )
 a3 = Answer.create!( choice: panopt.questions.third.choices.sample, quiz_result: qr1 )
@@ -79,7 +194,7 @@ qr1.result = qr1.answers.map(&:choice).select(&:correct).count / qr1.answers.cou
 qr1.save!
 
 puts "...Iterators quiz for the second User..."
-iterators = Quiz.create!(user: User.second, title: "Iterators in Ruby", seed: true)
+iterators = Quiz.create!(user: main_character, title: "Iterators in Ruby", seed: true)
 iterators.questions.create!([{ question: "What is an iterator in the context of Ruby programming?" },
                             { question: "Which method is commonly used to implement iterators in Ruby?" },
                             { question: "What is the purpose of an iterator in Ruby?" },
@@ -108,7 +223,7 @@ iterators.questions.fifth.choices.create!([ { choice: "collection.each { |elemen
 iterators.save!
 
 puts "...taking the Iterators quiz..."
-qr2 = QuizResult.create!(quiz: iterators, user: User.second, result: 0, seed: true)
+qr2 = QuizResult.create!(quiz: iterators, user: main_character, result: 0, seed: true)
 a1 = Answer.create!( choice: iterators.questions.first.choices.sample, quiz_result: qr2 )
 a2 = Answer.create!( choice: iterators.questions.second.choices.sample, quiz_result: qr2 )
 a3 = Answer.create!( choice: iterators.questions.third.choices.sample, quiz_result: qr2 )
@@ -120,7 +235,7 @@ qr2.result = qr2.answers.map(&:choice).select(&:correct).count / qr2.answers.cou
 qr2.save!
 
 puts "...adding a How to Study quiz for the second User..."
-study = Quiz.create!(user: User.second, title: "How to Study Quickly", seed: true)
+study = Quiz.create!(user: main_character, title: "How to Study Quickly", seed: true)
 study.questions.create!([{ question: "What is the primary goal of studying quickly?" },
                         { question: "What are some effective strategies for studying quickly?" },
                         { question: "What role does time management play in studying quickly?" },
@@ -147,64 +262,6 @@ study.questions.fifth.choices.create!([ { choice: "Superficial understanding and
                                       { choice: "Decreased motivation and interest in learning", correct: false },
                                       { choice: "Improved long-term memory and critical thinking skills", correct: false } ])
 study.save!
-
-puts "...adding a Roots of Techno quiz for the second User..."
-techno = Quiz.create!(user: User.second, title: "Roots of Techno", seed: true)
-techno.questions.create!([{question: "Where did techno music originate in the 1980s?"},
-                          {question: "Who are considered the pioneers of techno music?"},
-                          {question: "Which electronic instrument played a significant role in the creation of techno music?"},
-                          {question: "What musical genres influenced the development of techno music?"},
-                          {question: "What characteristics distinguish techno music from other electronic music genres?"}])
-techno.questions.first.choices.create!([{choice: "London, England", correct: false},
-                                        {choice: "Detroit, Michigan", correct: true},
-                                        {choice: "Chicago, Illinois", correct: false},
-                                        {choice: "Berlin, Germany", correct: false}])
-techno.questions.second.choices.create!([{choice: "The Chemical Brothers", correct: false},
-                                        {choice: "Kraftwerk", correct: false},
-                                        {choice: "Juan Atkins, Derrick May, and Kevin Saunderson", correct: true},
-                                        {choice: "Daft Punk", correct: false}])
-techno.questions.third.choices.create!([{choice: "Drum machine", correct: true},
-                                        {choice: "Synthesizer", correct: false},
-                                        {choice: "Electric guitar", correct: false},
-                                        {choice: "Theremin", correct: false}])
-techno.questions.fourth.choices.create!([{choice: "Jazz and Classical", correct: false},
-                                        {choice: "Rock and Roll", correct: false},
-                                        {choice: "Funk and Disco", correct: true},
-                                        {choice: "Country and Reggae", correct: false}])
-techno.questions.fifth.choices.create!([{choice: "Heavy use of vocal samples", correct: false},
-                                        {choice: "Slow tempo and relaxed beats", correct: false},
-                                        {choice: "Emphasis on melody and harmony", correct: false},
-                                        {choice: "Repetitive rhythms and synthetic sounds", correct: true}])
-techno.save!
-
-puts "...adding a Philips curve quiz for the second User..."
-philips = Quiz.create!(user: User.second, title: "Philips curve", seed: true)
-philips.questions.create!([{question: "The Phillips curve depicts the relationship between which two economic variables?"},
-                          {question: "According to the Phillips curve, what is the typical relationship between inflation and unemployment?"},
-                          {question: "The Phillips curve suggests that when unemployment is low, what tends to happen to inflation?"},
-                          {question: "Which economist introduced the concept of the Phillips curve in the 1950s?"},
-                          {question: "What critique has been leveled against the Phillips curve theory in modern economics?"}])
-philips.questions.first.choices.create!([{choice: "Inflation and unemployment", correct: true},
-                                        {choice: "GDP and interest rates", correct: false},
-                                        {choice: "Exchange rates and trade balance", correct: false},
-                                        {choice: "Income inequality and poverty rate", correct: false}])
-philips.questions.second.choices.create!([{choice: "They have a positive correlation", correct: false},
-                                        {choice: "They have a negative correlation", correct: true},
-                                        {choice: "They are independent of each other", correct: false},
-                                        {choice: "They have a curvilinear relationship", correct: false}])
-philips.questions.third.choices.create!([{choice: "It increases", correct: true},
-                                        {choice: "It decreases", correct: false},
-                                        {choice: "It remains constant", correct: false},
-                                        {choice: "It becomes unpredictable", correct: false}])
-philips.questions.fourth.choices.create!([{choice: "John Maynard Keynes", correct: false},
-                                        {choice: "Milton Friedman", correct: false},
-                                        {choice: "A.W. Phillips", correct: true},
-                                        {choice: "Paul Samuelson", correct: false}])
-philips.questions.fifth.choices.create!([{choice: "It fails to account for supply-side factors", correct: true},
-                                        {choice: "It is too simplistic and outdated", correct: false},
-                                        {choice: "It relies too heavily on mathematical models", correct: false},
-                                        {choice: "It only applies to closed economies", correct: false}])
-philips.save!
 
 
 puts "Creating 4 quizzes (with questions, choices and recommendationsd and results) owned by other users..."
