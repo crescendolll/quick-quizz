@@ -54,7 +54,7 @@
         <span class="button-text">Change Password</span>
       <% end %>
 
-      <%= link_to destroy_user_session_path, class: "wide-button white-button" do %>
+      <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "wide-button white-button" do %>
         <i class="fa-solid fa-arrow-right-from-bracket button-icon"></i>
         <span class="button-text">Log Out</span>
       <% end %>
