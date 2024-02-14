@@ -2,7 +2,8 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  }
+  z-index: 5;
+}
 
 .progress-update {
   position: fixed;
