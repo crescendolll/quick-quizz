@@ -27,8 +27,8 @@
         <%= f.submit "Submit", class: "wide-button green-button invisible" %>
       <% end %>
       <div class="centered-button">
-         <div class="d-none wide-button green-button button-wrapper" data-question-target="questionCorrect">Correct!!</div>
-         <div class="d-none wide-button green-button button-wrapper" style="background-color: #D65F81;" data-question-target="questionFalse">Wrong!!</div>
+         <div class="d-none result-popup" data-question-target="questionCorrect">Correct!!</div>
+         <div class="d-none result-popup" style="background-color: #D65F81;" data-question-target="questionFalse">Wrong!!</div>
       </div>
     <%# ----- /quiz ----- %>
 </div>
