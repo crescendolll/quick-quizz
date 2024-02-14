@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   def home
     @my_quizzes = Quiz.includes(:quiz_results)
                           .where(user: current_user)
-                          .where.not(quiz_results: { id: nil }) # Ensures quizzes with at least one quiz_result
+                          # .where.not(quiz_results: { id: nil }) # Ensures quizzes with at least one quiz_result
                           .order(created_at: :desc)
                           .map { |quiz| [quiz, quiz.quiz_results.maximum(:result)] }
                           .first(10)

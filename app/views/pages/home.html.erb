@@ -3,12 +3,21 @@
   <div class="card-basic">
       <div class="quizzes-donuts">
         <% @my_quizzes.each do |quiz, highest_result| %>
-          <div class="quiz-donut-with-name">
-            <div class="donut-home" style="--progress: <%= (highest_result*100).to_i %>%;">
-              <div class="donut__gap-home"><%= (highest_result*100).to_i %>%</div>
+          <% if highest_result != nil %>
+            <div class="quiz-donut-with-name">
+              <div class="donut-home" style="--progress: <%= (highest_result*100).to_i %>%;">
+                <div class="donut__gap-home"><%= (highest_result*100).to_i %>%</div>
+              </div>
+              <%= link_to quiz.title, quiz_path(quiz), class: "donut-text" %>
             </div>
-            <%= link_to quiz.title, quiz_path(quiz), class: "donut-text" %>
-          </div>
+          <% else %>
+            <div class="quiz-donut-with-name">
+              <div class="donut-home" style="--progress: 0%;">
+                <div class="donut__gap-home">0%</div>
+              </div>
+              <%= link_to quiz.title, quiz_path(quiz), class: "donut-text" %>
+            </div>
+          <% end %>
         <% end %>
       </div>
       <%= link_to quizzes_path, class: "wide-button centered-button" do %>
