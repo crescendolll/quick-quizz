@@ -1,0 +1,12 @@
+.progress-center {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  }
+
+.progress-update {
+  position: fixed;
+  bottom: 45px;
+  width: 75%;
+  transition: 0.3s;
+}
