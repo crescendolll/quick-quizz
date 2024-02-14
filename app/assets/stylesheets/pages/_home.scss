@@ -9,16 +9,6 @@
   box-shadow: 8px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
-// .quizzes-donuts {
-//   height: 100%;
-//   display: flex;
-//   flex-direction: row;
-//   overflow-x: auto;
-//   overflow-y: hidden;
-//   margin-top: 10px;
-//   margin-bottom: 15px;
-// }
-
 .quizzes-donuts {
   height: 100%;
   display: flex;
@@ -79,16 +69,6 @@
   max-width: 100%;
   overflow-wrap: break-word;
   margin-top: 6px;
-}
-
-.home-title {
-  font-size: $small-text;
-  color: $white-text;
-  display: inline-block;
-  margin: 0 auto;
-  // margin-top: 1rem;
-  // left: 50%;
-  // transform: translateX(-50%);
 }
 
 .like-comment {
