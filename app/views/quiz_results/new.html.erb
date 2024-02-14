@@ -16,7 +16,7 @@
             <div>
               <%= f.fields_for :answers do |ff| %>
                 <% ff.collection_radio_buttons(:choice_id, question.choices, :id, :choice) do |b| %>
-                  <%= b.label(:"data-value" => b.value, class: "wide-button white-button") { b.radio_button + b.text } %>
+                  <%= b.label(:"data-value" => b.value, class: "wide-button white-button") { b.radio_button(:"data-correct" => b.object.correct) + b.text } %>
                 <% end %>
               <% end %>
             </div>
@@ -26,5 +26,10 @@
         <% end %>
         <%= f.submit "Submit", class: "wide-button green-button invisible" %>
       <% end %>
+      <div class="centered-button">
+         <div class="d-none result-popup" data-question-target="questionCorrect">Correct!!</div>
+         <div class="d-none result-popup" style="background-color: #D65F81;" data-question-target="questionFalse">Wrong!!</div>
+      </div>
     <%# ----- /quiz ----- %>
 </div>
+<%#  %>
