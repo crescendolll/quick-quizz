@@ -21,6 +21,7 @@
 
 .result-message-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
@@ -38,7 +39,22 @@
 }
 
 .quiz-result-small-text {
-  margin: 0 2rem;
-  font-size: $small-text;
+  display: flex;
+  justify-content: center;
+  font-size: $small-medium-text;
+  color: white;
+}
+
+.quiz-result-xs-text {
+  display: flex;
+  justify-content: center;
+  font-size: $xs-text;
+  color: white;
+  margin-bottom: 10px;
+}
+
+hr {
+  width: 60%;
+  border-width: 2px;
   color: white;
 }
