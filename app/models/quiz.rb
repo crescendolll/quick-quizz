@@ -65,7 +65,10 @@ class Quiz < ApplicationRecord
               }
             }
           ]
-          Under no circumstances use double quotes in your JSON response. Use single quotes instead. If you use double quotes, the JSON will be invalid and an error will occur. If you are unsure about the JSON structure, please refer to the example above."
+          Under no circumstances use double quotes in your JSON response. Use single quotes instead.
+          Do not put any words or phrases in quotes in your response.
+          Under no circumstances use apostrophes in your response.
+          If you use double quotes, the JSON will be invalid and an error will occur. If you are unsure about the JSON structure, please refer to the example above."
       },
       {
         role: "user",

@@ -1,6 +1,14 @@
 <div class="navbar-shadow">
 </div>
 
+<% if @quiz && current_page?(new_quiz_quiz_result_path(@quiz)) %>
+  <style>
+    .navbar-bottom {
+      display: none;
+    }
+  </style>
+<% end %>
+
 <div class="navbar-bottom">
   <%= link_to quizzes_path, class: "navbar-button" do %>
     <div class="navbar-button-icon">

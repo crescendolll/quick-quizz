@@ -51,8 +51,10 @@ class QuizResult < ApplicationRecord
             }
           ]
           Under no circumstances use double quotes in your JSON response. Use single quotes instead.
-          If you use double quotes, the JSON will be invalid and an error will occur. If you are unsure about the JSON structure, please refer to the example above.
-          Under no circumstances use any quotes or apostrophes inside the answers - rephrase the words if needed."
+          Do not put any words or phrases in quotes in your response.
+          Under no circumstances use apostrophes in your response.
+          Make sure you do not use the come after the last answer.
+          If you use double quotes, the JSON will be invalid and an error will occur. If you are unsure about the JSON structure, please refer to the example above."
       },
       {
         role: "user",
@@ -64,7 +66,8 @@ class QuizResult < ApplicationRecord
           {
             'topic': 'History of the Roman Empire',
             'question': 'Who was the first emperor of the Roman Empire?',
-            'answer': 'The first emperor of the Roman Empire was Augustus Caesar, also known as Octavian. He rose to power after defeating Mark Antony and Cleopatra at the Battle of Actium in 31 BCE. His reign marked the beginning of the Pax Romana, a period of relative peace and stability in the Roman world.'},
+            'answer': 'The first emperor of the Roman Empire was Augustus Caesar, also known as Octavian. He rose to power after defeating Mark Antony and Cleopatra at the Battle of Actium in 31 BCE. His reign marked the beginning of the Pax Romana, a period of relative peace and stability in the Roman world.'
+          },
           {
             'topic': 'History of the Roman Empire',
             'question': 'Which event is traditionally considered the fall of the Western Roman Empire?',
@@ -74,7 +77,8 @@ class QuizResult < ApplicationRecord
       }]
     })
 
-    raw_content = chatgpt_response["choices"][0]["message"]["content"].gsub("'s", "AAA").gsub('"', '\\"').gsub("'", '"').gsub("AAA", "'s")
+    # raw_content = chatgpt_response["choices"][0]["message"]["content"].gsub("'s", "AAA").gsub('"', '\\"').gsub("'", '"').gsub("AAA", "'s")
+    raw_content = chatgpt_response["choices"][0]["message"]["content"].gsub("\\'", "AAA").gsub('"', '\\"').gsub("'", '"').gsub("AAA", "'")
     response = JSON.parse(raw_content)
 
     # self.update_columns(title: response[0]["topic"])
