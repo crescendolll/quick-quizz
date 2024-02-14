@@ -24,7 +24,7 @@
           <% end %>
         <% end %>
       </div>
-      <%= link_to quizzes_path, class: "wide-button centered-button" do %>
+      <%= link_to quizzes_path, class: "wide-button centered-button white-text bold-text" do %>
         Quizz List
       <% end %>
   </div>
@@ -43,7 +43,7 @@
         <% elsif event.is_a?(Quiz) %>
           ✨ HOORAY !! ✨ <br/><%= event.user.username %> created a new <%= event.title %> Quizz!
           <div class="small-button-right mt-3">
-             <%= link_to quiz_path(event), class: "small-button centered-button" do %>
+             <%= link_to quiz_path(event), class: "small-button centered-button white-text" do %>
                Take this Quizz!
              <% end %>
           </div>

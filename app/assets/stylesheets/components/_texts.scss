@@ -24,7 +24,7 @@
 
 .page-title-s {
   font-size: $small-text;
-  color: $white-text;
+  color: #d4d4d4;
   display: inline-block;
   margin: 0 auto;
 }
@@ -48,4 +48,8 @@
 
 .white-text {
   color: white;
+}
+
+.bold-text {
+  font-weight: bold;
 }
