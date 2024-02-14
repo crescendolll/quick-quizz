@@ -25,7 +25,16 @@
           </div>
           <%# ----- /question ----- %>
         <% end %>
-        <%= f.submit "Submit", class: "wide-button green-button invisible" %>
+
+        <div data-pop-up-target="popUpSubmit" class="invisible">
+          <div class="backgound-pop-up">
+            <div class="card-basic pop-up">
+              <h2 class="medium-text black-text mt-4">Well done!<br/>You completed the quizz on <%= @quiz.title %></h2>
+              <%= f.submit "Go to results", class: "wide-button green-button centered-button" %>
+            </div>
+          </div>
+        </div>
+
       <% end %>
       <div class="centered-button">
          <%= render "shared/progress-bar" %>

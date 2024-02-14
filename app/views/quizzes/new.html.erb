@@ -9,7 +9,7 @@
         </div>
         <div class="input-description">
           <div class="input-field-text small-text">Add a photo of your notes</div>
-          <div class="input-field-text xs-text">pdf · jpeg</div>
+          <div class="input-field-text xs-text">pdf · jpeg · png</div>
         </div>
       </div>
 
@@ -17,7 +17,7 @@
 
       <div class="card-basic p-3">
         <%= f.label "Text", class: "input-card-title" %>
-        <%= f.text_area :text, placeholder: "Paste your notes here...", class: "input-text-area", data: { quiz_form_target: "textInput", action: "change->quiz-form#toggleInputs" } %>
+        <%= f.text_area :text, placeholder: "Paste your notes or just give a topic...", class: "input-text-area", data: { quiz_form_target: "textInput", action: "change->quiz-form#toggleInputs" } %>
       </div>
 
       <div data-controller="loading" class="mt-5">
