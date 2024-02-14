@@ -6,7 +6,6 @@
       <%= form_with model: [@quiz, @quiz_result], :html => {:class => 'question-form'} do |f| %>
         <% @quiz.questions.each_with_index do |question, index| %>
           <%# ----- question ----- %>
-          <%= @aria = 20 * index %>
           <div data-question-target="question" class="invisible">
             <div class="question-card">
               <h1>
@@ -22,6 +21,7 @@
               <% end %>
             </div>
             <%# ----- /choices ----- %>
+         <%= render "shared/progress-bar", progress: (index + 1) * 20 %>
           </div>
           <%# ----- /question ----- %>
         <% end %>
@@ -37,7 +37,6 @@
 
       <% end %>
       <div class="centered-button">
-         <%= render "shared/progress-bar" %>
          <div class="d-none result-popup" data-question-target="questionCorrect">Correct!!</div>
          <div class="d-none result-popup" style="background-color: #D65F81;" data-question-target="questionFalse">Wrong!!</div>
       </div>
