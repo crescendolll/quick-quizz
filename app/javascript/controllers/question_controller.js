@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="question"
 export default class extends Controller {
-  static targets = ["question", "submit", "questionCorrect", "questionFalse"]
+  static targets = ["question", "submit", "questionCorrect", "questionFalse", "popUpSubmit"]
 
   connect() {
     this.questionTargets.forEach((question) => {
@@ -34,6 +34,12 @@ export default class extends Controller {
 
           this.questionCorrectTarget.classList.add("d-none");
           this.questionFalseTarget.classList.add("d-none");
+        }, "1000");
+
+        setTimeout(() => {
+        if(question === last_question) {
+          this.popUpSubmitTarget.classList.remove('invisible');
+        }
         }, "1000");
 
         // console.log(question);
