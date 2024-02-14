@@ -1,5 +1,5 @@
 <div class="page-container">
-  <h1 class="page-title-lg">Quizz List</h1>
+  <h1 class="page-title-s">Quizz List</h1>
   <% @sorted.each_with_index do |(quiz, highest_result), index| %>
     <% condition = @recently_created && index == 0 %>
     <div class="card-basic <%= condition ? 'new_quiz_background' : '' %>">
