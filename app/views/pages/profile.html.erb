@@ -36,7 +36,8 @@
 
       <div class="profile-stat">
           <div class="large-text">
-            <%= @average_score.round(2) %>
+            <%= (@average_score*100).to_i %>%
+            <%# <%= @average_score.round(2) %>
           </div>
         <h2 class="small-text">Average Score</h2>
       </div>
