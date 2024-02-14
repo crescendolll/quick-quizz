@@ -46,8 +46,10 @@
         <% end %>
       </div>
     <% end %>
-      <%= link_to new_quiz_path do %>
-        <div class="new-quiz-button"></div>
-      <% end %>
+      <%= link_to new_quiz_path, class: "new-quiz-button-right moved-static", data: { controller: "scroll", scroll_target: "newQuizButton" } do %>
+        <div class="moved-static" data-controller="scroll" data-scroll-target="newQuizButton">
+      </div>
+<% end %>
+
   </div>
 </div>
