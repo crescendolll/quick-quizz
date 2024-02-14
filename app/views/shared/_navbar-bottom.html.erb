@@ -1,12 +1,14 @@
 <div class="navbar-shadow">
 </div>
 
-<% if @quiz && current_page?(new_quiz_quiz_result_path(@quiz)) %>
-  <style>
-    .navbar-bottom {
-      display: none;
-    }
-  </style>
+<% if @quiz && @quiz.id != nil %>
+  <% if current_page?(new_quiz_quiz_result_path(@quiz)) %>
+    <style>
+      .navbar-bottom {
+        display: none;
+      }
+    </style>
+  <% end %>
 <% end %>
 
 <div class="navbar-bottom">
