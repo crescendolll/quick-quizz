@@ -3,4 +3,25 @@
   <div class="circle2"></div>
   <div class="circle3"></div>
   <div class="circle4"></div>
+  <div class="circle5"></div>
+  <div class="circle6"></div>
 </div>
+
+<script>
+  window.addEventListener('scroll', function() {
+    var circle1 = document.querySelector('.circle1');
+    var circle2 = document.querySelector('.circle2');
+    var circle3 = document.querySelector('.circle3');
+    var circle4 = document.querySelector('.circle4');
+    var circle5 = document.querySelector('.circle5');
+    var circle6 = document.querySelector('.circle6');
+    var scrollPosition = window.scrollY;
+
+    circle1.style.top = 50 + scrollPosition * 3.5 + 'px';
+    circle2.style.top = 175 + scrollPosition * 1.8 + 'px';
+    circle3.style.top = 550 + scrollPosition * 3.5 + 'px';
+    circle4.style.top = 600 + scrollPosition * 2.0 + 'px';
+    circle5.style.top = 0 + scrollPosition * 0.4 + 'px';
+    circle6.style.top = 300 + scrollPosition * 4.0 + 'px';
+  });
+</script>
