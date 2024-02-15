@@ -13,7 +13,5 @@ export default class extends Controller {
     this.toggleLikeTarget.classList.toggle("fa-solid");
   }
 
-  message() {
-    // this.toggleMessageTarget.classList.toggle("d-none");
-  }
+
 }

@@ -16,7 +16,7 @@
             <div>
               <%= f.fields_for :answers do |ff| %>
                 <% ff.collection_radio_buttons(:choice_id, question.choices, :id, :choice) do |b| %>
-                  <%= b.label(:"data-value" => b.value, class: "wide-button white-button") { b.radio_button(:"data-correct" => b.object.correct) + b.text } %>
+                  <%= b.label(:"data-value" => b.value, class: "wide-button white-button") { b.radio_button(:"data-correct" => b.object.correct, :"data-action" => "click->question#revealButton") + b.text } %>
                 <% end %>
               <% end %>
             </div>
