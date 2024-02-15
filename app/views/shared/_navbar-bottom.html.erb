@@ -11,8 +11,8 @@
   <% end %>
 <% end %>
 
-<div class="navbar-bottom">
-  <%= link_to quizzes_path, class: "navbar-button" do %>
+<div class="navbar-bottom"  data-controller="navbar">
+  <%= link_to quizzes_path, class: "navbar-button active", data: { target: 'navbar.icon' } do %>
     <div class="navbar-button-icon">
       <i class="fa-solid fa-list"></i>
     </div>
@@ -22,7 +22,7 @@
   <% end %>
 
   <% if current_page?(root_url) %>
-    <%= link_to root_path, class: "navbar-button" do %>
+    <%= link_to root_path, class: "navbar-button" data-controller="navbar_scroll" do %>
       <div class="navbar-button-icon">
         <i class="fa-solid fa-house-chimney"></i>
       </div>
