@@ -4,6 +4,7 @@
     <%= simple_form_for @quiz, html: { multipart: true } do |f| %>
       <div class="card-basic">
         <%= f.label "Photo", class: "input-card-title" %>
+
         <div class="file-input-container">
           <%= f.file_field :image, as: :file, input_html: { placeholder: "Give your notes" }, data: { quiz_form_target: "imageInput", action: "change->quiz-form#toggleInputs" } %>
         </div>
@@ -22,7 +23,7 @@
 
       <div data-controller="loading" class="mt-5">
         <div class="new-quiz-submit" >
-          <%= f.submit "Create Quizz!", data: { action: "click->loading#show", loading_target: "loadingPopup" }, class: "new-quiz-submit-button wide-button green-button centered-button boxbutton" %>
+          <%= f.submit "Create Quizz!", data: { action: "click->loading#show", loading_target: "loadingPopup" }, class: "new-quiz-submit-button wide-button centered-button boxbutton white-txt" %>
           <%= render "shared/loading-popup" %>
         </div>
       </div>
