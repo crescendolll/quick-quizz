@@ -1,16 +1,21 @@
 
+
   <div class="navbar-shadow">
   </div>
 
-  <% if @quiz && @quiz.id != nil %>
-    <% if current_page?(new_quiz_quiz_result_path(@quiz)) %>
-      <style>
-        /* .navbar-bottom {
-          display: none;
-        } */
-      </style>
-    <% end %>
+<% if @quiz && @quiz.id != nil %>
+  <% if current_page?(new_quiz_quiz_result_path(@quiz)) %>
+    <style>
+      .navbar-bottom {
+        display: none;
+      }
+      .navbar-shadow {
+        display: none;
+      }
+    </style>
   <% end %>
+<% end %>
+ // navbar if we want to move down
 <%# <div class="navbar navbar-up" data-navbar-color-target="navbar"> %>
   <div class="navbar-bottom" data-controller="navbar-color" data-navbar-color-target="navbar">
     <%= link_to quizzes_path, class: "navbar-button active", data: { navbar_color_target: 'list' } do %>
