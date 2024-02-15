@@ -1,7 +1,12 @@
 <div class="page-container" data-controller="question">
-    <div class="page-title-s">
+    <div class="page-title-quiz">
       <%= @quiz.title %>
     </div>
+    <%= link_to quizzes_path do %>
+      <div class="back-to-quizzlist-button">
+        <i class="fa-solid fa-angle-left"></i>
+      </div>
+    <% end %>
     <%# ----- quiz ----- %>
       <%= form_with model: [@quiz, @quiz_result], :html => {:class => 'question-form'} do |f| %>
         <% @quiz.questions.each_with_index do |question, index| %>

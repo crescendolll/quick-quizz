@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 170px;
+  height: 140px;
   z-index: 6;
   background-color: $green;
   display: flex;
@@ -12,6 +12,25 @@
   font-weight: bold;
   color: white;
   padding-top: 20px;
+  animation: slideIn 0.35s forwards, slideOut 0.35s forwards 0.8s;
+}
+
+@keyframes slideIn {
+  from {
+    bottom: -140px;
+  }
+  to {
+    bottom: 0px; /* Adjust as needed */
+  }
+}
+
+@keyframes slideOut {
+  from {
+    bottom: 0px; /* Adjust as needed */
+  }
+  to {
+    bottom: -140px;
+  }
 }
 
 @keyframes glow-green {

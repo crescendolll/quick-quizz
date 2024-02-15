@@ -61,6 +61,30 @@
   top: -5px;
 }
 
+.back-to-quizzlist-button {
+  position: fixed;
+  background-color: white;
+  top: 35px;
+  // left: 20px;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  font-size: $xl-text;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  text-decoration: none;
+  color: $text-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: $small-medium-text;
+}
+
+.back-to-quizzlist-button::after {
+  position: relative;
+  top: -5px;
+}
+
 .white-button {
   background-color: white;
   color: $text-color;
@@ -71,6 +95,7 @@
 
 input[type="radio"] {
   visibility: hidden;
+  position: fixed;
 }
 
 .boxbutton:active{
@@ -129,11 +154,11 @@ input[type="radio"] {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
-  .new-quiz-button-right::after {
-    content: "+";
-    position: relative;
-    top: -5px;
-  }
+.new-quiz-button-right::after {
+  content: "+";
+  position: relative;
+  top: -5px;
+}
 
 .new-quiz-button-right.moved-right {
   right: -100px;
