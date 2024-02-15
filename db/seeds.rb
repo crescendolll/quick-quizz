@@ -35,7 +35,7 @@ puts "Creating users..."
 end
 
 main_character = User.second
-main_character.update!(username: "rokas", email:"the_many_lives_of_stasilius@damn.son")
+main_character.update!(username: "rokas", email:"the_many_lives_of_stasiulis@damn.son")
 
 puts "Creating quizzes (with questions and choices) for the second User..."
 
@@ -44,29 +44,29 @@ waste = Quiz.create!(user: main_character, title: "Correct Waste Collection", se
 )
 waste.questions.create!([{ question: "What is the primary goal of waste collection?" },
                         { question: "What are the main categories of waste?" },
-                        { question: "What are some common methods of waste disposal?" },
+                        { question: "What are the most common methods of waste disposal?" },
                         { question: "What are the potential environmental impacts of improper waste collection and disposal?" },
                         { question: "What are some best practices for reducing waste and promoting recycling?" }])
 waste.questions.first.choices.create!([{ choice: "To prevent the accumulation of waste in public spaces", correct: false },
                                       { choice: "To minimize the environmental impact of waste", correct: true },
                                       { choice: "To generate revenue from waste management", correct: false },
                                       { choice: "To create jobs and employment opportunities", correct: false }])
-waste.questions.second.choices.create!([{ choice: "Biodegradable and non-biodegradable", correct: true },
-                                      { choice: "Organic and inorganic", correct: true },
-                                      { choice: "Recyclable and non-recyclable", correct: true },
+waste.questions.second.choices.create!([{ choice: "Biodegradable and non-biodegradable", correct: false },
+                                      { choice: "Organic and inorganic", correct: false },
+                                      { choice: "Recyclable and non-recyclable", correct: false },
                                       { choice: "Hazardous and non-hazardous", correct: true }])
 waste.questions.third.choices.create!([{ choice: "Landfilling and incineration", correct: true },
-                                      { choice: "Composting and recycling", correct: true },
-                                      { choice: "Dumping and littering", correct: true },
-                                      { choice: "Reusing and repurposing", correct: true }])
+                                      { choice: "Composting and recycling", correct: false },
+                                      { choice: "Dumping and littering", correct: false },
+                                      { choice: "Reusing and repurposing", correct: false }])
 waste.questions.fourth.choices.create!([{ choice: "Soil and water pollution", correct: true },
-                                      { choice: "Air and noise pollution", correct: true },
-                                      { choice: "Habitat destruction and loss of biodiversity", correct: true },
-                                      { choice: "Climate change and global warming", correct: true }])
+                                      { choice: "Air and noise pollution", correct: false },
+                                      { choice: "Habitat destruction and loss of biodiversity", correct: false },
+                                      { choice: "Climate change and global warming", correct: false }])
 waste.questions.fifth.choices.create!([{ choice: "Reduce, Reuse, Recycle", correct: true },
-                                      { choice: "Refuse, Reuse, Repurpose", correct: true },
-                                      { choice: "Recycle, Reclaim, Renew", correct: true },
-                                      { choice: "Recover, Reuse, Replenish", correct: true }])
+                                      { choice: "Refuse, Reuse, Repurpose", correct: false },
+                                      { choice: "Recycle, Reclaim, Renew", correct: false },
+                                      { choice: "Recover, Reuse, Replenish", correct: false }])
 waste.save!
 
 puts "...taking the waste collection quiz..."
@@ -76,6 +76,47 @@ a2 = Answer.create!( choice: waste.questions.second.choices.sample, quiz_result:
 a3 = Answer.create!( choice: waste.questions.third.choices.sample, quiz_result: qr )
 a4 = Answer.create!( choice: waste.questions.fourth.choices.sample, quiz_result: qr )
 a5 = Answer.create!( choice: waste.questions.fifth.choices.sample, quiz_result: qr )
+
+puts "... and calculating the result based on the answers..."
+qr.result = qr.answers.map(&:choice).select(&:correct).count / qr.answers.count.to_f
+qr.save!
+
+puts "...adding a quiz about health codes for handling organic waste..."
+health = Quiz.create!(user: main_character, title: "Health Codes for Handling Organic Waste", seed: true)
+health.questions.create!([{ question: "What are the primary health risks associated with handling organic waste?" },
+                          { question: "What are some common sources of organic waste in a residential setting?" },
+                          { question: "What are the potential environmental impacts of organic waste?" },
+                          { question: "What are some best practices for safely handling and disposing of organic waste?" },
+                          { question: "What are the main components of a composting system for organic waste?" }])
+health.questions.first.choices.create!([{ choice: "Exposure to pathogens and disease-causing microorganisms", correct: true },
+                                      { choice: "Allergic reactions and respiratory issues", correct: false },
+                                      { choice: "Chemical exposure and toxic contamination", correct: false },
+                                      { choice: "Injuries and accidents from handling heavy materials", correct: false }])
+health.questions.second.choices.create!([{ choice: "Food scraps and kitchen waste", correct: true },
+                                      { choice: "Yard trimmings and garden debris", correct: false },
+                                      { choice: "Paper and cardboard products", correct: false },
+                                      { choice: "Animal waste and pet litter", correct: false }])
+health.questions.third.choices.create!([{ choice: "Soil and water pollution", correct: true },
+                                      { choice: "Air and noise pollution", correct: false },
+                                      { choice: "Habitat destruction and loss of biodiversity", correct: false },
+                                      { choice: "Climate change and global warming", correct: false }])
+health.questions.fourth.choices.create!([{ choice: "Wear protective clothing and equipment", correct: false },
+                                      { choice: "Wash hands and sanitize work surfaces", correct: false },
+                                      { choice: "Store waste in airtight containers and sealed bags", correct: true },
+                                      { choice: "Dispose of waste in designated collection bins and containers", correct: false }])
+health.questions.fifth.choices.create!([{ choice: "Aeration, moisture, and temperature control", correct: false },
+                                      { choice: "Layering, turning, and mixing", correct: false },
+                                      { choice: "Balancing carbon and nitrogen ratios", correct: false },
+                                      { choice: "Microbial activity and decomposition", correct: true }])
+health.save!
+
+puts "...taking the health codes quiz..."
+qr = QuizResult.create!(quiz: health, user: main_character, result: 0, seed: true)
+a1 = Answer.create!( choice: health.questions.first.choices.sample, quiz_result: qr )
+a2 = Answer.create!( choice: health.questions.second.choices.sample, quiz_result: qr )
+a3 = Answer.create!( choice: health.questions.third.choices.sample, quiz_result: qr )
+a4 = Answer.create!( choice: health.questions.fourth.choices.sample, quiz_result: qr )
+a5 = Answer.create!( choice: health.questions.fifth.choices.sample, quiz_result: qr )
 
 puts "... and calculating the result based on the answers..."
 qr.result = qr.answers.map(&:choice).select(&:correct).count / qr.answers.count.to_f
@@ -141,11 +182,94 @@ architecture.save!
 
 puts "...taking the Architecture quiz..."
 qr = QuizResult.create!(quiz: architecture, user: main_character, result: 0, seed: true)
-a1 = Answer.create!( choice: architecture.questions.first.choices.select(&:correct).first, quiz_result: qr )
-a2 = Answer.create!( choice: architecture.questions.second.choices.select(&:correct).first, quiz_result: qr )
-a3 = Answer.create!( choice: architecture.questions.third.choices.select(&:correct).first, quiz_result: qr )
-a4 = Answer.create!( choice: architecture.questions.fourth.choices.select(&:correct).first, quiz_result: qr )
-a5 = Answer.create!( choice: architecture.questions.fifth.choices.select(&:correct).first, quiz_result: qr )
+a1 = Answer.create!( choice: architecture.questions.first.choices.sample, quiz_result: qr )
+a2 = Answer.create!( choice: architecture.questions.second.choices.sample, quiz_result: qr )
+a3 = Answer.create!( choice: architecture.questions.third.choices.sample, quiz_result: qr )
+a4 = Answer.create!( choice: architecture.questions.fourth.choices.sample, quiz_result: qr )
+a5 = Answer.create!( choice: architecture.questions.fifth.choices.sample, quiz_result: qr )
+
+puts "... and calculating the result based on the answers..."
+qr.result = qr.answers.map(&:choice).select(&:correct).count / qr.answers.count.to_f
+qr.save!
+
+puts "...adding a how to design a landscape quiz for the second User..."
+
+landscape = Quiz.create!(user: main_character, title: "How to Design a Landscape", seed: true)
+landscape.questions.create!([{ question: "What are the primary goals of landscape design?" },
+                            { question: "What are some key elements of landscape design?" },
+                            { question: "What role does sustainability play in modern landscape design?" },
+                            { question: "What are some examples of iconic landscaped gardens around the world?" },
+                            { question: "What are the most common potential challenges and limitations of landscape design?" }])
+landscape.questions.first.choices.create!([{ choice: "To create functional and aesthetically pleasing outdoor spaces", correct: true },
+                                        { choice: "To maximize profits and minimize costs", correct: false },
+                                        { choice: "To promote social and cultural values", correct: false },
+                                        { choice: "To express individual creativity and personal style", correct: false }])
+landscape.questions.second.choices.create!([{ choice: "Form, function, and structure", correct: false },
+                                        { choice: "Color, texture, and pattern", correct: false },
+                                        { choice: "Scale, proportion, and balance", correct: true },
+                                        { choice: "Light, shadow, and reflection", correct: false }])
+landscape.questions.third.choices.create!([{ choice: "It emphasizes water conservation and environmental impact", correct: true },
+                                        { choice: "It prioritizes historical preservation and restoration", correct: false },
+                                        { choice: "It focuses on luxury and opulence", correct: false },
+                                        { choice: "It promotes technological innovation and advancement", correct: false }])
+landscape.questions.fourth.choices.create!([{ choice: "Versailles Gardens, Versailles, France", correct: false },
+                                        { choice: "Butchart Gardens, Victoria, Canada", correct: true },
+                                        { choice: "Kew Gardens, London, England", correct: false },
+                                        { choice: "Hakone Gardens, Tokyo, Japan", correct: false }])
+landscape.questions.fifth.choices.create!([{ choice: "Budget constraints and financial limitations", correct: false },
+                                        { choice: "Regulatory restrictions and zoning laws", correct: true },
+                                        { choice: "Material availability and construction techniques", correct: false },
+                                        { choice: "Client preferences and design specifications", correct: false }])
+landscape.save!
+
+puts "...taking the Landscape Design quiz..."
+qr = QuizResult.create!(quiz: landscape, user: main_character, result: 0, seed: true)
+a1 = Answer.create!( choice: landscape.questions.first.choices.sample, quiz_result: qr )
+a2 = Answer.create!( choice: landscape.questions.second.choices.sample, quiz_result: qr )
+a3 = Answer.create!( choice: landscape.questions.third.choices.sample, quiz_result: qr )
+a4 = Answer.create!( choice: landscape.questions.fourth.choices.sample, quiz_result: qr )
+a5 = Answer.create!( choice: landscape.questions.fifth.choices.sample, quiz_result: qr )
+
+puts "... and calculating the result based on the answers..."
+qr.result = qr.answers.map(&:choice).select(&:correct).count / qr.answers.count.to_f
+
+
+puts "...CAD design quiz for the second User where only one choice per question is correct..."
+cad = Quiz.create!(user: main_character, title: "CAD Design", seed: true)
+cad.questions.create!([{ question: "What does 'CAD' stand for in the context of design and engineering?" },
+                      { question: "What are some common applications of CAD software?" },
+                      { question: "What are the primary advantages of using CAD software for design and drafting?" },
+                      { question: "What are some potential drawbacks and limitations of CAD software?" },
+                      { question: "What are some essential skills and competencies for using CAD software effectively?" }])
+cad.questions.first.choices.create!([{ choice: "Computer-Aided Design", correct: true },
+                                    { choice: "Computer-Assisted Drafting", correct: false },
+                                    { choice: "Creative Architecture and Design", correct: false },
+                                    { choice: "Collaborative Analysis and Development", correct: false }])
+cad.questions.second.choices.create!([{ choice: "Architectural design and urban planning", correct: true },
+                                    { choice: "Choosing a hairstyle", correct: false },
+                                    { choice: "Deciding on textures for a fashion project", correct: false },
+                                    { choice: "Wireframing for apps", correct: false }])
+cad.questions.third.choices.create!([{ choice: "Division of labour", correct: false },
+                                    { choice: "Flexibility and adaptability to changing requirements", correct: true },
+                                    { choice: "All-in-one solution", correct: false },
+                                    { choice: "Automation of prototyping", correct: false }])
+cad.questions.fourth.choices.create!([{ choice: "Endless options for creativity", correct: false },
+                                    { choice: "Dependency on hardware and software compatibility", correct: true },
+                                    { choice: "Too easy to learn", correct: false },
+                                    { choice: "Year-long traings needed", correct: false }])
+cad.questions.fifth.choices.create!([{ choice: "Technical drawing and geometric modeling", correct: true },
+                                    { choice: "Problem-solving and critical thinking", correct: false },
+                                    { choice: "Communication and collaboration with team members", correct: false },
+                                    { choice: "Adaptability and flexibility in design and development", correct: false }])
+cad.save!
+
+puts "...taking the CAD Design quiz..."
+qr = QuizResult.create!(quiz: cad, user: main_character, result: 0, seed: true)
+a1 = Answer.create!( choice: cad.questions.first.choices.select(&:correct).first, quiz_result: qr )
+a2 = Answer.create!( choice: cad.questions.second.choices.select(&:correct).first, quiz_result: qr )
+a3 = Answer.create!( choice: cad.questions.third.choices.select(&:correct).first, quiz_result: qr )
+a4 = Answer.create!( choice: cad.questions.fourth.choices.select(&:correct).first, quiz_result: qr )
+a5 = Answer.create!( choice: cad.questions.fifth.choices.select(&:correct).first, quiz_result: qr )
 
 puts "... and calculating the result based on the answers..."
 qr.result = qr.answers.map(&:choice).select(&:correct).count / qr.answers.count.to_f
@@ -262,6 +386,37 @@ study.questions.fifth.choices.create!([ { choice: "Superficial understanding and
                                       { choice: "Decreased motivation and interest in learning", correct: false },
                                       { choice: "Improved long-term memory and critical thinking skills", correct: false } ])
 study.save!
+
+puts "...adding a career changer quiz for the second User..."
+career = Quiz.create!(user: main_character, title: "Career Change", seed: true)
+career.questions.create!([{ question: "What are some common reasons for considering a career change?" },
+                          { question: "What are the most common potential challenges and obstacles of changing careers?" },
+                          { question: "What are the first essential steps for planning and executing a successful career change?" },
+                          { question: "What role does self-assessment and reflection play in the process of changing careers?" },
+                          { question: "What are ineffective strategies for overcoming fear of change?" }])
+career.questions.first.choices.create!([ { choice: "Job security and financial stability", correct: false },
+                                      { choice: "No desire for personal and professional growth", correct: false },
+                                      { choice: "Compatibilty with company culture and values", correct: false },
+                                      { choice: "Burnout and exhaustion from current job", correct: true } ])
+career.questions.second.choices.create!([ { choice: "Fear of the unknown and uncertainty", correct: false },
+                                      { choice: "Resistance from family and friends", correct: false },
+                                      { choice: "Financial constraints and budget limitations", correct: false },
+                                      { choice: "Lack of relevant skills and experience", correct: true } ])
+career.questions.third.choices.create!([ { choice: "Research and explore new career options", correct: true },
+                                      { choice: "Apply to as many job openings as possible", correct: false },
+                                      { choice: "Network and connect with professionals in new field", correct: false },
+                                      { choice: "Seek guidance and support from career counselors", correct: false } ])
+career.questions.fourth.choices.create!([ { choice: "Identify personal strengths and weaknesses", correct: true },
+                                      { choice: "Set specific and achievable career goals", correct: true },
+                                      { choice: "Evaluate current job satisfaction and fulfillment", correct: true },
+                                      { choice: "Reflect on past experiences and accomplishments", correct: true } ])
+career.questions.fifth.choices.create!([ { choice: "Seek support and encouragement from friends and family", correct: false },
+                                      { choice: "Embrace change and adapt to new challenges", correct: false },
+                                      { choice: "Stay focused and never accept setbacks", correct: true },
+                                      { choice: "Take calculated risks and explore new opportunities", correct: false } ])
+career.save!
+
+
 
 
 puts "Creating 4 quizzes (with questions, choices and recommendationsd and results) owned by other users..."
