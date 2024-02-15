@@ -17,8 +17,7 @@ class QuizzesController < ApplicationController
     .map { |quiz| [quiz, quiz.quiz_results.maximum(:result)] }
 
     @sorted = (my_quizzes + taken_quizzes).sort_by { |quiz, _| quiz.created_at }.reverse
-
-    @recently_created = request&.referer&.include?("new")
+    @recently_created = request&.referer&.include?("new") && params[:origin] == "create"
   end
 
   def show
@@ -33,7 +32,7 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.new(quiz_params)
     @quiz.user = current_user
     if @quiz.save
-      redirect_to quizzes_path
+      redirect_to quizzes_path(origin: "create")
     else
       render :new, status: :unprocessable_entity
     end
