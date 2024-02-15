@@ -1,5 +1,7 @@
-<div class="navbar-shadow">
-</div>
+
+
+  <div class="navbar-shadow">
+  </div>
 
 <% if @quiz && @quiz.id != nil %>
   <% if current_page?(new_quiz_quiz_result_path(@quiz)) %>
@@ -13,28 +15,19 @@
     </style>
   <% end %>
 <% end %>
-
-<div class="navbar-bottom">
-  <%= link_to quizzes_path, class: "navbar-button" do %>
-    <div class="navbar-button-icon">
-      <i class="fa-solid fa-list"></i>
-    </div>
-    <%# <div class="navbar-button-text">
-      Quiz List
-    </div> %>
-  <% end %>
-
-  <% if current_page?(root_url) %>
-    <%= link_to root_path, class: "navbar-button" do %>
+ // navbar if we want to move down
+<%# <div class="navbar navbar-up" data-navbar-color-target="navbar"> %>
+  <div class="navbar-bottom" data-controller="navbar-color" data-navbar-color-target="navbar">
+    <%= link_to quizzes_path, class: "navbar-button active", data: { navbar_color_target: 'list' } do %>
       <div class="navbar-button-icon">
-        <i class="fa-solid fa-house-chimney"></i>
+        <i class="fa-solid fa-list"></i>
       </div>
       <%# <div class="navbar-button-text">
-        New Quizz
+        Quiz List
       </div> %>
     <% end %>
-  <% else %>
-    <%= link_to root_path, class: "navbar-button" do %>
+
+    <%= link_to root_path, class: "navbar-button active", data: { navbar_color_target: 'chimney' } do %>
       <div class="navbar-button-icon">
         <i class="fa-solid fa-house-chimney"></i>
       </div>
@@ -42,16 +35,16 @@
         Home
       </div> %>
     <% end %>
-  <% end %>
 
-  <%= link_to profile_path, class: "navbar-button" do %>
-    <div class="navbar-button-icon">
-      <i class="fa-solid fa-user"></i>
-    </div>
-    <%# <div class="navbar-button-text">
-      Profile
-    </div> %>
-  <% end %>
+    <%= link_to profile_path, class: "navbar-button active", data: { navbar_color_target: 'user' } do %>
+      <div class="navbar-button-icon">
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <%# <div class="navbar-button-text">
+        Profile
+      </div> %>
+    <% end %>
+  </div>
 
   <!--
   <%= link_to profile_path, class: "navbar-button" do %>
@@ -67,4 +60,4 @@
     Log Out
   <% end %>
   -->
-</div>
+<%# </div> %>
