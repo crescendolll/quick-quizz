@@ -95,6 +95,7 @@
 
 input[type="radio"] {
   visibility: hidden;
+  position: fixed;
 }
 
 .boxbutton:active{
@@ -153,11 +154,11 @@ input[type="radio"] {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
-  .new-quiz-button-right::after {
-    content: "+";
-    position: relative;
-    top: -5px;
-  }
+.new-quiz-button-right::after {
+  content: "+";
+  position: relative;
+  top: -5px;
+}
 
 .new-quiz-button-right.moved-right {
   right: -100px;

@@ -7,7 +7,9 @@
 
 .progress-update {
   position: fixed;
-  bottom: 45px;
+  bottom: 30px;
   width: 75%;
-  transition: 0.3s;
+  transition: width 0.7s ease;
+  z-index: 100;
+  box-shadow: 8px 10px 10px rgba(83, 83, 83, 0.1)
 }
