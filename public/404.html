@@ -106,40 +106,29 @@
       padding: 2rem 1rem;
       color: #1b1b1b;
       min-height: 100vh;
-    }
-
-    .page-title-lg {
-      font-size: 2.0em;
-      margin: 10px auto;
-      color: white;
+      justify-content: center;
     }
 
     .nice-link {
-      color: white;
       font-weight: bold;
       text-decoration: none;
     }
 
-    .small-button-right {
-      display: flex;
-      justify-content: flex-end;
-      width: 100%;
-    }
-
-    .small-button {
+    .wide-button {
       display: inline;
-      align-items: center;
       border: none;
       color: #1b1b1b;
-      font-size: 0.8em;
-      /* font-weight: bold; */
-      padding: 10px 25px;
+      padding: 15px 20px;
       margin-top: 15px;
-      width: 150px;
+      margin-bottom: 15px;
       border-radius: 26px;
+      cursor: pointer;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
       background-color: #8477F0;
       text-decoration: none;
+
       opacity: 1;
       &:hover, &:focus {
         background-color: #988ee9;
@@ -154,6 +143,26 @@
 
     .white-text {
       color: white;
+    }
+
+    .card-basic {
+      background-color: white;
+      text-decoration: none;
+      color: #1b1b1b;
+      opacity: 0.89;
+      margin-top: 16px;
+      padding: 15px 20px;
+      border-radius: 18px;
+      box-shadow: 8px 10px 10px rgba(0, 0, 0, 0.2);
+      justify-content: center;
+    }
+
+    .card-title {
+      font-size: 1.5em;
+      /* margin: 10px auto; */
+      color: #1b1b1b;
+      margin-top: 20px;
+      margin-bottom: 30px;
     }
   </style>
 </head>
@@ -170,13 +179,11 @@
       <div class="circle6"></div>
     </div>
     <div class="page-container">
-      <p class="page-title-lg">The page you were looking for doesn't exist.</p>
-      <div>
-        <p>You may have mistyped the address or the page may have moved.</p>
+      <div class="card-basic">
+        <p class="card-title">We're sorry, but the AI is being sassy.</p>
         <p>If you were just <a class="nice-link" href="/quizzes/new">generating a quiz</a> or <a class="nice-link" href="/quizzes">taking a quizz</a>, please try again. </p>
-        <div class="small-button-right mt-3">
-          <a class="small-button centered-button white-text" href="/">Get me back Home!</a>
-       </div>
+        <p>You may have also have mistyped the address or the page may have moved.</p>
+        <a class="wide-button centered-button white-text bold-text mb-3" href="/">Go back Home</a>
       </div>
     </div>
   </div>
