@@ -35,7 +35,7 @@ puts "Creating users..."
 end
 
 main_character = User.second
-main_character.update!(username: "rokas", email:"the_many_lives_of_rokas@damn.son")
+main_character.update!(username: "test", email:"test@quick.quizz")
 
 puts "Creating quizzes (with questions and choices) for the second User..."
 

@@ -18,3 +18,9 @@
   // display: invisible;
   font-size: $small-text;
 }
+
+@media (min-width: 768px) {
+  .pop-up {
+    width: 600px;
+  }
+}

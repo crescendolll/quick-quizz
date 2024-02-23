@@ -12,20 +12,6 @@
   z-index: 4;
 }
 
-// .navbar-bottom {
-//   bottom: 0;
-//   position: fixed;
-//   width: 100vw;
-//   height: 72px;
-//   background-color: $light-purple;
-//   color: $white-text;
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-around;
-//   align-items: center;
-//   padding-bottom: 5px;
-// }
-
 .navbar-shadow {
   width: 100%;
   position: fixed;
@@ -43,6 +29,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 60%;
+  max-width: 250px;
   height: 60px;
   background-color: white;
   border-radius: 30px;
