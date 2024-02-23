@@ -11,10 +11,12 @@
   </head>
 
   <body class="h-100">
-    <!-- <%= render "shared/navbar-top" %> -->
-    <div class="display app-container">
+    <%= render "shared/navbar-top" %>
+    <div class="display">
       <%= render "shared/background" %>
+      <%# <%= render "shared/navbar" %>
       <%= render "shared/flashes" %>
+
 
       <%= yield %>
     </div>

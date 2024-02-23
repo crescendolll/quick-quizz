@@ -20,10 +20,8 @@
   position: relative; /* Required for absolute positioning of pseudo-element */
 }
 
-@media (max-width: 767px) {
-  .quizzes-donuts::-webkit-scrollbar {
-    display: none;
-  }
+.quizzes-donuts::-webkit-scrollbar {
+  display: none;
 }
 
 .donut-quiz-name {
