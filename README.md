@@ -1,4 +1,7 @@
 ### Rails Webapp that AI-generates a quiz based on study notes. 
+
+See it on your phone [here](https://quickquizz-b1c66a544553.herokuapp.com/)! If you want to try it out, contact me  [@Tinsi](mailto:tensaemamo@protonmail.com?subject=QuickQuizz%20Trial%20login) 
+
 - Using [tesseract](https://github.com/dannnylo/rtesseract) for OCR
 - [OpenAI](https://platform.openai.com/docs/api-reference) for quiz generation.
 
